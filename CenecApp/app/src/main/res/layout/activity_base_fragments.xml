@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".base_fragments">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/contenedorFragments"
+        android:name="Fragments.social"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/fondoTarjeta"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/irAChats"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:background="@drawable/vectorchats">
+
+        </ImageView>
+        <ImageView
+            android:id="@+id/irAmigos"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/vectoramigos">
+        </ImageView>
+
+
+        <ImageView
+            android:id="@+id/irAPerfil"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@drawable/vectorjugador">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/irASocial"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:src="@drawable/social"></ImageView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</LinearLayout>

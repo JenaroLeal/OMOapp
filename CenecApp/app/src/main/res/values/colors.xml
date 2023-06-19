@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="morado">#A7EAF3</color>
+    <color name="verde">#92D747</color>
+    <color name="verdeOscuro">#33D639</color>
+    <color name="verdeRecluciente">#8CE42F</color>
+
+    <color name="gris">#7A7979</color>
+    <color name="fondoTarjeta">#1F1947</color>
+    <color name="fondoPantalla">#0E0430</color>
+    <color name="colorTextos">#9980E7</color>
+    <color name="blancoOpaco">#33FFFFFF</color>
+</resources>

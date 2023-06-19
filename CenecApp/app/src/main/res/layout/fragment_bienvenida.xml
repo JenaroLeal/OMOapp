@@ -1,0 +1,31 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradiente3"
+    android:gravity="center"
+    tools:context="Fragments.bienvenida">
+
+    <ImageView
+        android:id="@+id/splashImagen"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@drawable/omologoremovebg"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/jugamos"
+        android:textColor="@color/verdeRecluciente"
+        android:textSize="50sp"
+        android:textStyle="bold"
+       />
+
+
+
+</LinearLayout>

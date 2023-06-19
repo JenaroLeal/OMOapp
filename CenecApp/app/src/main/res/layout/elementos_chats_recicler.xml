@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp"
+    android:outlineSpotShadowColor="@color/verdeRecluciente"
+    app:cardElevation="10dp"
+    android:layout_margin="20dp">
+
+
+    <LinearLayout
+        android:id="@+id/contenedorUsuarioChat"
+        android:background="@color/fondoTarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPerfil"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/black">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btnVerPerfilJugador"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="2">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.8">
+                <TextView
+                    android:id="@+id/afinidadUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textSize="50sp"
+                    android:textColor="@color/colorTextos">
+
+                </TextView>
+                <TextView
+                    android:id="@+id/nombreUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre usuario"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:gravity="start">
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amigos en común: "
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="italic"
+                        android:gravity="start">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/amigosComun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="2dp"
+                        android:text="123"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="@color/colorTextos">
+
+                    </TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@color/fondoTarjeta"
+            android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/btnDescartarJugador"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/vectordelete">
+            </ImageButton>
+            <View
+                android:layout_width="match_parent"
+                android:outlineSpotShadowColor="@color/verdeRecluciente"
+                android:layout_height="1dp">
+
+            </View>
+            <ImageButton
+                android:id="@+id/btnConectarJugador"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/vectormandook">
+            </ImageButton>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

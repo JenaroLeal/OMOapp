@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/fondoPantalla"
+    tools:context=".SocialActivity">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_weight="1">
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/contenedorRecicler"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" />
+   </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/white">
+
+    </View>
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/gradientbotones">
+        <ImageView
+            android:id="@+id/chatSocial"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:src="@drawable/chat">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/perfilSocial"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/profile"
+            android:layout_gravity="center">
+
+        </ImageView>
+        <ImageView
+            android:id="@+id/redSocial"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/social"
+            android:layout_gravity="end">
+        </ImageView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</LinearLayout>
