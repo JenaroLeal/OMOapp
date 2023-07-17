@@ -23,7 +23,7 @@
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/omologoremovebg" />
 
-            <TextView
+            <Button
                 android:id="@+id/btnReg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,9 +32,10 @@
                 android:text="@string/registrarse"
                 android:textStyle="bold"
                 android:layout_gravity="center"
-                android:textColor="@color/verdeRecluciente" />
+                android:backgroundTint="#EBE2F3"
+                android:textColor="#901EF6" />
 
-            <TextView
+            <Button
                 android:id="@+id/btnInicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +44,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
-                android:textColor="@color/verdeRecluciente" />
+                android:textColor="@color/verdeRecluciente"/>
 
         </LinearLayout>
     </ScrollView>

@@ -21,8 +21,8 @@ class Log_Reg_Activity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        val btnInicio:TextView = findViewById<Button>(R.id.btnInicio)
-        val btnReg:TextView = findViewById<Button>(R.id.btnReg)
+        val btnInicio:Button = findViewById<Button>(R.id.btnInicio)
+        val btnReg:Button = findViewById<Button>(R.id.btnReg)
 
 
         /**

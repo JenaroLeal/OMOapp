@@ -22,18 +22,6 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
 
-
-            <TextView
-                android:id="@+id/app1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/nombreApp"
-                android:textSize="40sp"
-                android:textColor="@color/verdeRecluciente"
-                android:textStyle="bold">
-
-            </TextView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,6 +91,30 @@
                     android:textAlignment="center"
                     android:textColorHint="@color/gris"
                     android:hint="@string/hintPasswordUsuario"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp">
+                <ImageView
+                    android:id="@+id/iconLlave2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/vectorpassword" />
+
+                <EditText
+                    android:id="@+id/campoPassword2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:background="@drawable/edittext"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/gris"
+                    android:hint="Confirmar contraseña"
                     android:inputType="textPassword" />
 
             </LinearLayout>

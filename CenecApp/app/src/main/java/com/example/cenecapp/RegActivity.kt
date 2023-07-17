@@ -18,8 +18,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.NonNull
 import clases.Usuario
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.SignInMethodQueryResult
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,9 +40,9 @@ class RegActivity : AppCompatActivity() {
     private lateinit var nombre: EditText
     private lateinit var email: EditText
     private lateinit var password: EditText
-    private lateinit var checkBox:CheckBox
-    private lateinit var verTerminos:TextView
-
+    private lateinit var password2: EditText
+    private lateinit var checkBox: CheckBox
+    private lateinit var verTerminos: TextView
 
 
     private val TAG: String = "RegActivity"
@@ -50,25 +53,23 @@ class RegActivity : AppCompatActivity() {
     /**
      * Método que nos permite almacenar y pasar la información a traves de un companion
      */
-    companion object{
-        var nombreEnviado:String=""
-        var emailEnviado:String=""
-        var passwordEnviado:String=""
+    companion object {
+        var nombreEnviado: String = ""
+        var emailEnviado: String = ""
+        var passwordEnviado: String = ""
     }
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg)
 
-        verTerminos=findViewById(R.id.leerTerminos)
+        verTerminos = findViewById(R.id.leerTerminos)
         /**
          * Listener para acceder a los terminos y condiciones
          */
-        verTerminos.setOnClickListener(){
-            val i:Intent=Intent(this,TerminosCondiciones::class.java)
+        verTerminos.setOnClickListener() {
+            val i: Intent = Intent(this, TerminosCondiciones::class.java)
             startActivity(i)
         }
         spinner = findViewById<ProgressBar>(R.id.pBar)
@@ -94,10 +95,7 @@ class RegActivity : AppCompatActivity() {
 
         }
 
-        /**
-         * Listener para el textView 'existe'
-         * nos devuelve a la actividad de iniciar sesion si el usuario ya existe
-         */
+
         existe.setOnClickListener() {
             val i: Intent = Intent(this, Inicio_Sesion_Activity::class.java)
             startActivity(i)
@@ -110,124 +108,100 @@ class RegActivity : AppCompatActivity() {
         nombre = findViewById<EditText>(R.id.nombreUsuario)
         email = findViewById<EditText>(R.id.campoEmail)
         password = findViewById<EditText>(R.id.campoPassword)
-        checkBox=findViewById(R.id.boxTerminos)
+        password2 = findViewById<EditText>(R.id.campoPassword2)
+        checkBox = findViewById(R.id.boxTerminos)
 
 
-        /**
-         * Listener para el textView 'Siguiente'
-         * Comprobamos que el valos de los distintos campos que pedimos al usuario son correctos
-         * En caso de que sean correctos, almacenamos su email y contraseña en nuestra base de datos
-         * Generamos un pdf que se almacena en el almacenamiento interno de la app
-         * Iniciamos la animación de nuestra progress bar
-         * Cambiamos de actividad
-         */
         btnSiguiente.setOnClickListener() {
             val mNombre: String = nombre.getText().toString()
             val emailFinal: String = email.getText().toString()
             val pass1: String = password.getText().toString()
+            val pass2: String = password2.text.toString()
 
+            val emailExiste = comprobarUsuario(emailFinal)
 
-            if(mNombre.equals("")){
-                nombre.error=getString(R.string.introduceNombre)
+            if (mNombre.equals("")) {
+                nombre.error = getString(R.string.introduceNombre)
+            } else if (emailFinal.equals("")) {
+                email.error = getString(R.string.introduceEmail)
+            } else if (pass1.equals("")) {
+                password.error = getString(R.string.introduceContraseña)
+            } else if (pass1.length < 8) {
+                password.error = getString(R.string.contraseñaMayor8)
+            } else if (!pass2.equals(pass1)) {
+                password.error = "Las contraseñas deben ser iguales"
+                password2.error = "Las contraseas deben ser iguales"
+            } else if (!checkBox.isChecked) {
+                checkBox.error = getString(R.string.debesAceptarTerminos)
             }
-            else if(emailFinal.equals("")){
-                email.error=getString(R.string.introduceEmail)
-            }
-            else if(pass1.equals("")){
-                password.error=getString(R.string.introduceContraseña)
-            }
-            else if(pass1.length<8){
-                password.error=getString(R.string.contraseñaMayor8)
-            }
-            else if(!checkBox.isChecked){
-                checkBox.error=getString(R.string.debesAceptarTerminos)
-            }
+            else if(!emailExiste){
 
-
+            }
             else {
-                mAuth.createUserWithEmailAndPassword(emailFinal, pass1)
-                    .addOnCompleteListener(this) { task ->
 
-                        if (task.isSuccessful) {
+                spinner.setVisibility(View.VISIBLE)
 
-                            mAuth.getCurrentUser()!!.sendEmailVerification()
-                                .addOnCompleteListener(this) { task ->
+                val i: Intent = Intent(this, RegActivity2::class.java)
+                nombreEnviado = mNombre
+                emailEnviado = emailFinal
+                passwordEnviado = pass1
 
-                                    var userId: String = mAuth.getCurrentUser()!!.getUid()
-                                    var usuarioBD: DatabaseReference =
-                                        FirebaseDatabase.getInstance().getReference()
-                                            .child("usuarios").child(userId)
+                val fileName = "terminosycondiciones.pdf"
+                val inputStream = assets.open(fileName)
 
-                                    val userInfo = HashMap<String, String>()
-                                    userInfo.put("name", mNombre)
-                                    userInfo.put("profileImageUrl", "default")
-                                    usuarioBD.updateChildren(userInfo as Map<String, Any>)
+                val outputStream = openFileOutput(fileName, Context.MODE_PRIVATE)
+                inputStream.copyTo(outputStream)
 
-                                    spinner.setVisibility(View.VISIBLE)
+                inputStream.close()
+                outputStream.close()
+                val animator = ValueAnimator.ofInt(0, 25)
 
-                                    val i: Intent = Intent(this, RegActivity2::class.java)
-                                    nombreEnviado=mNombre
-                                    emailEnviado=emailFinal
-                                    passwordEnviado=pass1
-
-                                    val fileName = "terminosycondiciones.pdf"
-                                    val inputStream = assets.open(fileName)
-
-                                    val outputStream = openFileOutput(fileName, Context.MODE_PRIVATE)
-                                    inputStream.copyTo(outputStream)
-
-                                    inputStream.close()
-                                    outputStream.close()
-                                    val animator = ValueAnimator.ofInt(0, 25)
-
-                                    /**
-                                     * Método que nos permite animar la progressbar durante 3 segundos
-                                     */
-                                    animator.apply {
-                                        duration = 1000 // 3 seconds
-                                        addUpdateListener { valueAnimator ->
-                                            val value = valueAnimator.animatedValue as Int
-                                            spinner.progress = value
-                                        }
-                                        /**
-                                         * Listener del animator
-                                         * @param object: objeto a animar
-                                         */
-                                        addListener(object : Animator.AnimatorListener {
-                                            /**
-                                             * Método para cuando se inicializa la animacion
-                                             */
-                                            override fun onAnimationStart(animator: Animator) {}
-                                            /**
-                                             * Método para cuando finaliza la animacion
-                                             * Nos lanza la siguiente actividad
-                                             */
-                                            override fun onAnimationEnd(animator: Animator) {
-
-                                                startActivity(i)
-
-                                                nombre.setText("")
-                                                email.setText("")
-                                                password.setText("")
-                                            }
-                                            /**
-                                             * Método para cuando se cancela la animacion
-                                             */
-                                            override fun onAnimationCancel(p0: Animator) {}
-                                            /**
-                                             * Método para cuando se repite la animacion
-                                             */
-                                            override fun onAnimationRepeat(p0: Animator) {}
-
-                                        })
-                                    }
-                                    animator.start()
-                                }
-                        } else {
-                            Log.w(TAG, "createUserWithEmail: error", task.exception)
-                            Toast.makeText(this, getString(R.string.emailNoValido), Toast.LENGTH_LONG).show()
-                        }
+                /**
+                 * Método que nos permite animar la progressbar durante 3 segundos
+                 */
+                animator.apply {
+                    duration = 1000 // 3 seconds
+                    addUpdateListener { valueAnimator ->
+                        val value = valueAnimator.animatedValue as Int
+                        spinner.progress = value
                     }
+                    /**
+                     * Listener del animator
+                     * @param object: objeto a animar
+                     */
+                    addListener(object : Animator.AnimatorListener {
+                        /**
+                         * Método para cuando se inicializa la animacion
+                         */
+                        override fun onAnimationStart(animator: Animator) {}
+
+                        /**
+                         * Método para cuando finaliza la animacion
+                         * Nos lanza la siguiente actividad
+                         */
+                        override fun onAnimationEnd(animator: Animator) {
+
+                            startActivity(i)
+
+                            nombre.setText("")
+                            email.setText("")
+                            password.setText("")
+                        }
+
+                        /**
+                         * Método para cuando se cancela la animacion
+                         */
+                        override fun onAnimationCancel(p0: Animator) {}
+
+                        /**
+                         * Método para cuando se repite la animacion
+                         */
+                        override fun onAnimationRepeat(p0: Animator) {}
+
+                    })
+                }
+                animator.start()
+
             }
         }
 
@@ -236,11 +210,26 @@ class RegActivity : AppCompatActivity() {
     /**
      * método para cuando inicializa la activdaad
      */
+
+
     override fun onStart() {
         super.onStart()
         mAuth.addAuthStateListener(firebaseAuthStateListener)
 
     }
+    fun comprobarUsuario(emailCheck:String):Boolean{
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        val emailUsuario = currentUser?.email
+        if (emailUsuario!= null && emailUsuario == emailCheck) {
+            email.error = "El email ya existe"
+            return false
+        } else {
+            return true
+        }
+
+    }
+
     /**
      * método por si nuestra aplicacion se detiene
      */
