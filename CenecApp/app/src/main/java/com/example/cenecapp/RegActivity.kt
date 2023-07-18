@@ -23,11 +23,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.SignInMethodQueryResult
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
-import java.net.HttpURLConnection
-import java.net.URL
+
 
 /**
  * Clase que nos permite registrar un usuario. Esta es la 1/4 donde recogemos datos del usuario.
@@ -118,7 +116,7 @@ class RegActivity : AppCompatActivity() {
             val pass1: String = password.getText().toString()
             val pass2: String = password2.text.toString()
 
-            val emailExiste = comprobarUsuario(emailFinal)
+
 
             if (mNombre.equals("")) {
                 nombre.error = getString(R.string.introduceNombre)
@@ -134,10 +132,10 @@ class RegActivity : AppCompatActivity() {
             } else if (!checkBox.isChecked) {
                 checkBox.error = getString(R.string.debesAceptarTerminos)
             }
-            else if(!emailExiste){
 
-            }
+
             else {
+
 
                 spinner.setVisibility(View.VISIBLE)
 
@@ -217,18 +215,7 @@ class RegActivity : AppCompatActivity() {
         mAuth.addAuthStateListener(firebaseAuthStateListener)
 
     }
-    fun comprobarUsuario(emailCheck:String):Boolean{
-        val auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-        val emailUsuario = currentUser?.email
-        if (emailUsuario!= null && emailUsuario == emailCheck) {
-            email.error = "El email ya existe"
-            return false
-        } else {
-            return true
-        }
 
-    }
 
     /**
      * método por si nuestra aplicacion se detiene
