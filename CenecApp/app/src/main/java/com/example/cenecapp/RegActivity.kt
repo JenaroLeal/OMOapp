@@ -19,10 +19,7 @@ import android.widget.Toast
 import androidx.annotation.NonNull
 import clases.Usuario
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthException
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.SignInMethodQueryResult
+import com.google.firebase.auth.*
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -135,7 +132,7 @@ class RegActivity : AppCompatActivity() {
 
 
             else {
-
+                checkEmailExists(emailFinal)
 
                 spinner.setVisibility(View.VISIBLE)
 
@@ -209,6 +206,34 @@ class RegActivity : AppCompatActivity() {
      * método para cuando inicializa la activdaad
      */
 
+    private fun checkEmailExists(emailCheck: String){
+        mAuth.fetchSignInMethodsForEmail(emailCheck)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val signInMethods = task.result?.signInMethods
+                    if (signInMethods == null || signInMethods.isEmpty()) {
+                        // Email doesn't exist in Firebase Authentication
+                        Toast.makeText(this, "Email doesn't exist", Toast.LENGTH_SHORT).show()
+
+
+                    } else {
+                        // Email already exists in Firebase Authentication
+                        Toast.makeText(this, "Email already exists", Toast.LENGTH_SHORT).show()
+                        email.error = "El email ya está en uso"
+                    }
+                } else {
+                    val exception = task.exception
+                    if (exception is FirebaseAuthUserCollisionException) {
+                        // Email already exists in Firebase Authentication
+                        Toast.makeText(this, "Email already exists", Toast.LENGTH_SHORT).show()
+                        email.error = "El email ya está en uso"
+                    } else {
+                        // Error occurred while checking email existence
+                        Toast.makeText(this, "Error occurred: ${exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+    }
 
     override fun onStart() {
         super.onStart()
