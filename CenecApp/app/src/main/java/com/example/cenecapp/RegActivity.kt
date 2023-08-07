@@ -129,75 +129,80 @@ class RegActivity : AppCompatActivity() {
             } else if (!checkBox.isChecked) {
                 checkBox.error = getString(R.string.debesAceptarTerminos)
             }
-
-
             else {
-                checkEmailExists(emailFinal)
+                // Here, we check if the email exists before proceeding
+                checkEmailExists(emailFinal) { emailExists ->
+                    if (emailExists) {
+                        // Email already exists
+                        email.error = "El email ya está en uso"
+                    } else {
+                        // Email does not exist, proceed with your desired action
+                        spinner.visibility = View.VISIBLE
+                        val i: Intent = Intent(this, RegActivity2::class.java)
+                        nombreEnviado = mNombre
+                        emailEnviado = emailFinal
+                        passwordEnviado = pass1
 
-                spinner.setVisibility(View.VISIBLE)
+                        val fileName = "terminosycondiciones.pdf"
+                        val inputStream = assets.open(fileName)
 
-                val i: Intent = Intent(this, RegActivity2::class.java)
-                nombreEnviado = mNombre
-                emailEnviado = emailFinal
-                passwordEnviado = pass1
+                        val outputStream = openFileOutput(fileName, Context.MODE_PRIVATE)
+                        inputStream.copyTo(outputStream)
 
-                val fileName = "terminosycondiciones.pdf"
-                val inputStream = assets.open(fileName)
-
-                val outputStream = openFileOutput(fileName, Context.MODE_PRIVATE)
-                inputStream.copyTo(outputStream)
-
-                inputStream.close()
-                outputStream.close()
-                val animator = ValueAnimator.ofInt(0, 25)
-
-                /**
-                 * Método que nos permite animar la progressbar durante 3 segundos
-                 */
-                animator.apply {
-                    duration = 1000 // 3 seconds
-                    addUpdateListener { valueAnimator ->
-                        val value = valueAnimator.animatedValue as Int
-                        spinner.progress = value
-                    }
-                    /**
-                     * Listener del animator
-                     * @param object: objeto a animar
-                     */
-                    addListener(object : Animator.AnimatorListener {
-                        /**
-                         * Método para cuando se inicializa la animacion
-                         */
-                        override fun onAnimationStart(animator: Animator) {}
+                        inputStream.close()
+                        outputStream.close()
+                        val animator = ValueAnimator.ofInt(0, 25)
 
                         /**
-                         * Método para cuando finaliza la animacion
-                         * Nos lanza la siguiente actividad
+                         * Método que nos permite animar la progressbar durante 3 segundos
                          */
-                        override fun onAnimationEnd(animator: Animator) {
+                        animator.apply {
+                            duration = 1000 // 3 seconds
+                            addUpdateListener { valueAnimator ->
+                                val value = valueAnimator.animatedValue as Int
+                                spinner.progress = value
+                            }
+                            /**
+                             * Listener del animator
+                             * @param object: objeto a animar
+                             */
+                            addListener(object : Animator.AnimatorListener {
+                                /**
+                                 * Método para cuando se inicializa la animacion
+                                 */
+                                override fun onAnimationStart(animator: Animator) {}
 
-                            startActivity(i)
+                                /**
+                                 * Método para cuando finaliza la animacion
+                                 * Nos lanza la siguiente actividad
+                                 */
+                                override fun onAnimationEnd(animator: Animator) {
 
-                            nombre.setText("")
-                            email.setText("")
-                            password.setText("")
+                                    startActivity(i)
+
+                                    nombre.setText("")
+                                    email.setText("")
+                                    password.setText("")
+                                }
+
+                                /**
+                                 * Método para cuando se cancela la animacion
+                                 */
+                                override fun onAnimationCancel(p0: Animator) {}
+
+                                /**
+                                 * Método para cuando se repite la animacion
+                                 */
+                                override fun onAnimationRepeat(p0: Animator) {}
+
+                            })
                         }
-
-                        /**
-                         * Método para cuando se cancela la animacion
-                         */
-                        override fun onAnimationCancel(p0: Animator) {}
-
-                        /**
-                         * Método para cuando se repite la animacion
-                         */
-                        override fun onAnimationRepeat(p0: Animator) {}
-
-                    })
+                        animator.start()
+                    }
                 }
-                animator.start()
-
             }
+
+
         }
 
     }
@@ -205,7 +210,7 @@ class RegActivity : AppCompatActivity() {
     /**
      * método para cuando inicializa la activdaad
      */
-
+/*
     private fun checkEmailExists(emailCheck: String){
         mAuth.fetchSignInMethodsForEmail(emailCheck)
             .addOnCompleteListener { task ->
@@ -234,7 +239,26 @@ class RegActivity : AppCompatActivity() {
                 }
             }
     }
-
+*/
+    private fun checkEmailExists(emailCheck: String, callback: (Boolean) -> Unit) {
+        mAuth.fetchSignInMethodsForEmail(emailCheck)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val signInMethods = task.result?.signInMethods
+                    if (signInMethods == null || signInMethods.isEmpty()) {
+                        // Email doesn't exist in Firebase Authentication
+                        callback(false)
+                    } else {
+                        // Email already exists in Firebase Authentication
+                        callback(true)
+                    }
+                } else {
+                    val exception = task.exception
+                    callback(false) // Treat error as email not existing
+                    Toast.makeText(this, "Error occurred: ${exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
     override fun onStart() {
         super.onStart()
         mAuth.addAuthStateListener(firebaseAuthStateListener)

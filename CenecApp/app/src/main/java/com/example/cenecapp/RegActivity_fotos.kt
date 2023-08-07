@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -43,6 +44,7 @@ class RegActivity_fotos : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private lateinit var spinner:ProgressBar
     private var tieneFoto=false
+    private lateinit var mAuth:FirebaseAuth
 
     /**
      * Método que nos permite almacenar y pasar la información a traves de un companion
@@ -55,6 +57,7 @@ class RegActivity_fotos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg_fotos)
 
+        mAuth = FirebaseAuth.getInstance()
         spinner=findViewById(R.id.spinner4)
         spinner.setVisibility(View.INVISIBLE)
 
@@ -102,6 +105,75 @@ class RegActivity_fotos : AppCompatActivity() {
              * Registramos al usuario en nuestra base de datos de Firebase, con los distintos campos
              */
             else {
+                mAuth.createUserWithEmailAndPassword(emailFinal, passwordRecibido)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            // User creation successful, proceed to Firestore update
+                            val user = mAuth.currentUser
+
+                            // Now, store the user details in Firestore
+                            val userData = hashMapOf(
+                                "password" to passwordRecibido,
+                                "email" to emailFinal,
+                                "nombre" to nombreRecibido,
+                                "ciudad" to ciudadRecibida,
+                                "plataforma" to plataformaRecibida,
+                                "juegos" to juegosRecibidos,
+                                "biografia" to bio,
+                                "foto" to emailFinal,
+                                "usuariosDeseados" to arrayListOf<String>(),
+                                "usuariosQueQuierenConectar" to arrayListOf<String>(),
+                                "usuariosRechazados" to arrayListOf<String>(),
+                                "usuariosBloqueados" to arrayListOf<String>(),
+                                "amigos" to arrayListOf<String>()
+                            )
+
+                            db.collection("Usuarios").document(emailFinal).set(userData)
+                                .addOnCompleteListener { firestoreTask ->
+                                    if (firestoreTask.isSuccessful) {
+                                        // User data stored successfully in Firestore
+                                        val i: Intent = Intent(this, base_fragments::class.java)
+                                        val bundle: Bundle = Bundle()
+                                        biografiaEnviada = bio
+                                        emailFinal = emailRecibido
+                                        bundle.putString("email", emailFinal)
+                                        i.putExtras(bundle)
+
+                                        spinner.setVisibility(View.VISIBLE)
+                                        val animator = ValueAnimator.ofInt(75, 100)
+                                        /**
+                                         * Método que nos permite animar la progressbar durante 3 segundos
+                                         */
+                                        animator.apply {
+                                            duration = 1000 // 3 seconds
+                                            addUpdateListener { valueAnimator ->
+                                                val value = valueAnimator.animatedValue as Int
+                                                spinner.progress = value
+                                            }
+
+                                            addListener(object : Animator.AnimatorListener {
+                                                override fun onAnimationStart(animator: Animator) {}
+                                                override fun onAnimationEnd(animator: Animator) {
+                                                    startActivity(i)
+                                                }
+
+                                                override fun onAnimationCancel(p0: Animator) {}
+                                                override fun onAnimationRepeat(p0: Animator) {}
+                                            })
+                                        }
+                                        animator.start()
+                                    } else {
+                                        // Error occurred while storing data in Firestore
+                                        Toast.makeText(this, "Error occurred: ${firestoreTask.exception?.message}", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                        } else {
+                            // User creation failed, show an error
+                            Toast.makeText(this, "Error occurred: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+           /* else {
                 db.collection("Usuarios").document(emailRecibido).set(
                     hashMapOf(
                         "password" to passwordRecibido,
@@ -119,9 +191,6 @@ class RegActivity_fotos : AppCompatActivity() {
                         "amigos" to ArrayList<String>()
                     )
                 )
-                /**
-                 * Almacenamos los datos del usuario en un bundle para poder pasarlo a la siguiente actividad una vez completado el registro
-                 */
                 val i: Intent = Intent(this, base_fragments::class.java)
                 var bundle: Bundle = Bundle()
                 biografiaEnviada = bio
@@ -140,38 +209,19 @@ class RegActivity_fotos : AppCompatActivity() {
                         val value = valueAnimator.animatedValue as Int
                         spinner.progress = value
                     }
-                    /**
-                     * Listener del animator
-                     * @param object: objeto a animar
-                     */
+
                     addListener(object : Animator.AnimatorListener {
-                        /**
-                         * Método para cuando se inicializa la animacion
-                         */
                         override fun onAnimationStart(animator: Animator) {}
-                        /**
-                         * Método para cuando finaliza la animacion
-                         * Nos lanza la siguiente actividad
-                         */
                         override fun onAnimationEnd(animator: Animator) {
                             startActivity(i)
                         }
-                        /**
-                         * Método para cuando se cancela la animacion
-                         */
                         override fun onAnimationCancel(p0: Animator) {}
-                        /**
-                         * Método para cuando se repite la animacion
-                         */
                         override fun onAnimationRepeat(p0: Animator) {}
 
                     })
                 }
-
                 animator.start()
-
-
-            }
+            }*/
         }
         /**
          * Listener para la imagen de usuario
