@@ -46,7 +46,7 @@
     <string name="debesAceptarTerminos">You must accept the terms and conditions of use</string>
     <string name="descripcionUsuario">Other users will want to know about you</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="completaBio">Complete your bio in 30-150 characters</string>
+    <string name="completaBio">Complete your bio with a minimum of 30 characters</string>
     <string name="juegosIguales">There cannot be two identical games</string>
     <string name="juegoInvalido">Enter a game</string>
     <string name="fotoOk">Photo uploaded successfully</string>

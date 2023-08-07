@@ -87,15 +87,11 @@ class RegActivity_fotos : AppCompatActivity() {
         btnFin=findViewById(R.id.btnFinalizar)
         bioJugador=findViewById(R.id.campoBiografia)
 
-        /**
-         * Listener de 'finalizar registro'
-         * Comprobamos si los datos introducidos exsiten y son correctos. En caso afirmativo, completmaos el registro del usuario
-         * En caso de que haya error, informamos al usuario
-         */
+
         btnFin.setOnClickListener(){
 
             val bio:String=bioJugador.text.toString()
-            if(bio.isEmpty() || bio.length>150 || bio.length<30){
+            if(bio.isEmpty() || bio.length<30){
                 bioJugador.error=getString(R.string.completaBio)
             }
             else if(tieneFoto==false){
@@ -105,22 +101,22 @@ class RegActivity_fotos : AppCompatActivity() {
              * Registramos al usuario en nuestra base de datos de Firebase, con los distintos campos
              */
             else {
-                mAuth.createUserWithEmailAndPassword(emailFinal, passwordRecibido)
+                mAuth.createUserWithEmailAndPassword(emailRecibido, passwordRecibido)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            // User creation successful, proceed to Firestore update
+
                             val user = mAuth.currentUser
 
-                            // Now, store the user details in Firestore
+
                             val userData = hashMapOf(
                                 "password" to passwordRecibido,
-                                "email" to emailFinal,
+                                "email" to emailRecibido,
                                 "nombre" to nombreRecibido,
                                 "ciudad" to ciudadRecibida,
                                 "plataforma" to plataformaRecibida,
                                 "juegos" to juegosRecibidos,
                                 "biografia" to bio,
-                                "foto" to emailFinal,
+                                "foto" to emailRecibido,
                                 "usuariosDeseados" to arrayListOf<String>(),
                                 "usuariosQueQuierenConectar" to arrayListOf<String>(),
                                 "usuariosRechazados" to arrayListOf<String>(),
@@ -128,10 +124,10 @@ class RegActivity_fotos : AppCompatActivity() {
                                 "amigos" to arrayListOf<String>()
                             )
 
-                            db.collection("Usuarios").document(emailFinal).set(userData)
+                            db.collection("Usuarios").document(emailRecibido).set(userData)
                                 .addOnCompleteListener { firestoreTask ->
                                     if (firestoreTask.isSuccessful) {
-                                        // User data stored successfully in Firestore
+
                                         val i: Intent = Intent(this, base_fragments::class.java)
                                         val bundle: Bundle = Bundle()
                                         biografiaEnviada = bio
@@ -141,9 +137,7 @@ class RegActivity_fotos : AppCompatActivity() {
 
                                         spinner.setVisibility(View.VISIBLE)
                                         val animator = ValueAnimator.ofInt(75, 100)
-                                        /**
-                                         * Método que nos permite animar la progressbar durante 3 segundos
-                                         */
+
                                         animator.apply {
                                             duration = 1000 // 3 seconds
                                             addUpdateListener { valueAnimator ->
@@ -173,55 +167,7 @@ class RegActivity_fotos : AppCompatActivity() {
                         }
                     }
             }
-           /* else {
-                db.collection("Usuarios").document(emailRecibido).set(
-                    hashMapOf(
-                        "password" to passwordRecibido,
-                        "email" to emailRecibido,
-                        "nombre" to nombreRecibido,
-                        "ciudad" to ciudadRecibida,
-                        "plataforma" to plataformaRecibida,
-                        "juegos" to juegosRecibidos,
-                        "biografia" to bio,
-                        "foto" to emailRecibido,
-                        "usuariosDeseados" to ArrayList<String>(),
-                        "usuariosQueQuierenConectar" to ArrayList<String>(),
-                        "usuariosRechazados" to ArrayList<String>(),
-                        "usuariosBloqueados" to ArrayList<String>(),
-                        "amigos" to ArrayList<String>()
-                    )
-                )
-                val i: Intent = Intent(this, base_fragments::class.java)
-                var bundle: Bundle = Bundle()
-                biografiaEnviada = bio
-                emailFinal = emailRecibido
-                bundle.putString("email", emailFinal)
-                i.putExtras(bundle)
 
-                spinner.setVisibility(View.VISIBLE)
-                val animator = ValueAnimator.ofInt(75, 100)
-                /**
-                 * Método que nos permite animar la progressbar durante 3 segundos
-                 */
-                animator.apply {
-                    duration = 1000 // 3 seconds
-                    addUpdateListener { valueAnimator ->
-                        val value = valueAnimator.animatedValue as Int
-                        spinner.progress = value
-                    }
-
-                    addListener(object : Animator.AnimatorListener {
-                        override fun onAnimationStart(animator: Animator) {}
-                        override fun onAnimationEnd(animator: Animator) {
-                            startActivity(i)
-                        }
-                        override fun onAnimationCancel(p0: Animator) {}
-                        override fun onAnimationRepeat(p0: Animator) {}
-
-                    })
-                }
-                animator.start()
-            }*/
         }
         /**
          * Listener para la imagen de usuario

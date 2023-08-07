@@ -45,7 +45,7 @@
     <string name="debesAceptarTerminos">Debes aceptar los términos y condiciones de uso</string>
     <string name="descripcionUsuario">Los otros usuarios querrán saber de ti</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="completaBio">Completa tu biografia entre 30 y 150 caracteres</string>
+    <string name="completaBio">La biografía debe tener al menos 30 caractéres</string>
     <string name="juegosIguales">No puede haber dos juegos iguales</string>
     <string name="juegoInvalido">Introduce un juego</string>
     <string name="fotoOk">Foto subida correctamente</string>
