@@ -111,8 +111,8 @@ class social : Fragment() {
 
 
         var db= FirebaseFirestore.getInstance()
-        val valores:ArrayList<Usuario> = arrayListOf<Usuario>()
 
+        var valores = ArrayList<Usuario>()
 
         db.collection("Usuarios").get().addOnSuccessListener {
 
@@ -129,11 +129,8 @@ class social : Fragment() {
                 var usuariosQueQuierenConectarDB:ArrayList<String> =usuarios.get("usuariosQueQuierenConectar") as ArrayList<String>
                 var usuariosRechazadosBD:ArrayList<String> = usuarios.get("usuariosRechazados") as ArrayList<String>
                 var usuariosBloqueados:ArrayList<String> = usuarios.get("usuariosBloqueados") as ArrayList<String>
+                var afinidad: Int
 
-                /**
-                 * Aqui comparamos los valores de dos arrays de juegos, el del usuario actual que esta registrado, con los usuarios de base de datos
-                 * por cada juego coincidente, añadimos una afinidad de 12%
-                 */
                 var juegosUsuario= juegosDB
                 for (i in 0 until juegosUser.size) {
                     for (j in 0 until juegosUsuario.size) {
@@ -143,47 +140,31 @@ class social : Fragment() {
                         }
                     }
                 }
-                /**
-                 * Aqui comparamos las plataformas en las que juegan. Sumamaos 25% de afinidad si coinciden
-                 */
+
                 if(usuario.plataforma==plataformaBD){
                     sumatorio+=25
                 }
-                /**
-                 * Comparamos la ciudad de cada usuario. Añadimos un 15% de afinidad si coinciden
-                 */
                 if(usuario.ciudad==ciudadDB){
                     sumatorio+=15
-                }
 
-                /**
-                 * Creamos el usuario añadiendo los valos recibidos de base de datos, asi como el calculo final de la afinidad y lo asginamos a nuestro array
-                 */
+                }
+                afinidad=sumatorio
                 val user: Usuario = Usuario(nombreDB!!,emailDB!!,passwordDB!!,ciudadDB,plataformaBD,juegosDB,"",bioBD!!,false,
-                    usuariosDeseadosDB,usuariosQueQuierenConectarDB,amigosBD,usuariosRechazadosBD,usuariosBloqueados,sumatorio)
+                    usuariosDeseadosDB,usuariosQueQuierenConectarDB,amigosBD,usuariosRechazadosBD,usuariosBloqueados,afinidad)
 
                 if(!stringArray.contains(user.email)){
                     valores.add(user)
+
                 }
-
-
-                /**
-                 * Reiniciamos para que el siguiente usuario su valor no sea acumulativo ocn respecto al anterior
-                 */
                 sumatorio=0
-
-
             }
 
-            /**
-             * Cargamos los datos de los distintos usuarios obtenidos de base de dtos en nuestro recicler
-             */
+            valores.sortedByDescending { it.afinidad }
+
             val recyclerView: RecyclerView =component.findViewById<RecyclerView>(R.id.contenedorReciclerFragment)
+            recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.adapter= this.activity?.let { it1 -> UsuarioAdapter(it1,valores) }
             recyclerView.layoutManager= LinearLayoutManager(component.context)
-
-
-
 
         }
 

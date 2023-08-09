@@ -121,7 +121,8 @@ class RegActivity_fotos : AppCompatActivity() {
                                 "usuariosQueQuierenConectar" to arrayListOf<String>(),
                                 "usuariosRechazados" to arrayListOf<String>(),
                                 "usuariosBloqueados" to arrayListOf<String>(),
-                                "amigos" to arrayListOf<String>()
+                                "amigos" to arrayListOf<String>(),
+                                "afinidad" to 0 as Int
                             )
 
                             db.collection("Usuarios").document(emailRecibido).set(userData)
