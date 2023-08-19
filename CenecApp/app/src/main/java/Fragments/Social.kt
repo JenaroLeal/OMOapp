@@ -45,13 +45,6 @@ class social : Fragment() {
         }
     }
 
-    /**
-     * Método que nos permite cargar el fragment y verlo
-     * @param inflater: para poder cargar el fragment
-     * @param container: la vista que vamos a cargar
-     * @param savedInstanceState: variable de tipo Bundle para almacenar datos y no perderlos
-     * @return el fragment cargado con todos los componenter
-     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val component:View = inflater.inflate(R.layout.fragment_social, container, false)
         contexto=requireActivity()
@@ -144,9 +137,15 @@ class social : Fragment() {
                 if(usuario.plataforma==plataformaBD){
                     sumatorio+=25
                 }
+                else{
+                    sumatorio+=8
+                }
                 if(usuario.ciudad==ciudadDB){
                     sumatorio+=15
 
+                }
+                else{
+                    sumatorio+=4
                 }
                 afinidad=sumatorio
                 val user: Usuario = Usuario(nombreDB!!,emailDB!!,passwordDB!!,ciudadDB,plataformaBD,juegosDB,"",bioBD!!,false,
@@ -159,7 +158,7 @@ class social : Fragment() {
                 sumatorio=0
             }
 
-            valores.sortedByDescending { it.afinidad }
+            valores.sortWith(compareByDescending { it.afinidad })
 
             val recyclerView: RecyclerView =component.findViewById<RecyclerView>(R.id.contenedorReciclerFragment)
             recyclerView.adapter?.notifyDataSetChanged()

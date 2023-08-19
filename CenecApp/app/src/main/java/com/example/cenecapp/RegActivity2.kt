@@ -109,6 +109,9 @@ class RegActivity2 : AppCompatActivity() {
                         override fun onAnimationEnd(animator: Animator) {
 
                             startActivity(i)
+                            campoCiudad.setSelection(0)
+                            selectorPlataforma.setSelection(0)
+                            spinner.progress=25
 
                         }
                         /**

@@ -197,6 +197,14 @@ class RegActivity3_juegos : AppCompatActivity() {
                             override fun onAnimationStart(animator: Animator) {}
                             override fun onAnimationEnd(animator: Animator) {
                                 startActivity(cambio)
+
+                                binding.juego1.setSelection(0)
+                                binding.juego2.setSelection(0)
+                                binding.juego3.setSelection(0)
+                                binding.juego4.setSelection(0)
+                                binding.juego5.setSelection(0)
+                                losJuegos.clear()
+                                binding.spinner3.progress=50
                             }
 
                             override fun onAnimationCancel(p0: Animator) {}

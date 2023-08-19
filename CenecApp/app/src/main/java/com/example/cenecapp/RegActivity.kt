@@ -183,6 +183,15 @@ class RegActivity : AppCompatActivity() {
                                     nombre.setText("")
                                     email.setText("")
                                     password.setText("")
+                                    password2.setText("")
+                                    checkBox.isChecked=false
+                                    spinner.progress=0
+
+                                    nombre.error = null
+                                    email.error = null
+                                    password.error = null
+                                    password2.error = null
+                                    checkBox.error = null
                                 }
 
                                 /**
