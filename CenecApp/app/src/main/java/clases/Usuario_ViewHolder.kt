@@ -19,6 +19,7 @@ class Usuario_ViewHolder(view: View):ViewHolder(view) {
 
 
     val nombre:TextView by lazy { view.findViewById(R.id.nombreUsuario) }
+    val amigos:TextView by lazy {view.findViewById(R.id.amigos)}
     val amigosComun:TextView by lazy {view.findViewById(R.id.amigosComun)}
     val afinidad:TextView by lazy { view.findViewById(R.id.afinidadUsuario) }
     val fotoPerfil:CircleImageView by lazy {view.findViewById(R.id.imgPerfil)}

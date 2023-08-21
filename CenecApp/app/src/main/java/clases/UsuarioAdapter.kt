@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cenecapp.Perfil_Jugadores
 import com.example.cenecapp.R
+import com.example.cenecapp.base_fragments
 import com.example.cenecapp.databinding.FragmentSocialBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -46,11 +47,19 @@ class UsuarioAdapter(val actividadMadre:Activity, val datos:ArrayList<Usuario>):
     override fun onBindViewHolder(holder: Usuario_ViewHolder, position: Int) {
         var db= FirebaseFirestore.getInstance()
         val usuario:Usuario=datos.get(position)
+        var amigosComun:Int = 0
         holder.nombre.text=usuario.nombre
         holder.afinidad.text=usuario.afinidad.toString()+"%"
-        holder.amigosComun.text=usuario.juegos.size.toString()
+        holder.amigos.text=usuario.amigos.size.toString()
 
+        var yo:Usuario= base_fragments.Companion.usuarioEnviado
 
+        for (amigos in yo.amigos){
+            if(amigos in usuario.amigos){
+                amigosComun++
+            }
+        }
+        holder.amigosComun.text=amigosComun.toString()
         val fotopefil:CircleImageView=holder.fotoPerfil
 
 

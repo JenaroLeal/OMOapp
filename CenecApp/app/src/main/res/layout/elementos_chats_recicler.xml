@@ -71,23 +71,46 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Amigos en común: "
+                        android:text="Amigos: "
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         android:textStyle="italic"
                         android:gravity="start">
                     </TextView>
                     <TextView
-                        android:id="@+id/amigosComun"
+                        android:id="@+id/amigos"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="2dp"
-                        android:text="123"
                         android:textAlignment="center"
                         android:gravity="center"
                         android:textColor="@color/colorTextos">
 
                     </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Amigos en común: "
+                        android:textSize="15sp"
+                        android:textStyle="italic"
+                        android:textColor="@color/white">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/amigosComun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="@color/colorTextos">
+                    </TextView>
+
+
                 </LinearLayout>
 
             </LinearLayout>
