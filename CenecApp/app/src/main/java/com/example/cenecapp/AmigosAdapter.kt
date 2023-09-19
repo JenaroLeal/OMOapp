@@ -32,7 +32,7 @@ class AmigosAdapter(val actividadMadre: Activity, val datos:ArrayList<Usuario>) 
         }
 
         holder.verAmigos.setOnClickListener(){
-            val i: Intent = Intent(actividadMadre,Perfil_Jugadores::class.java)
+            val i: Intent = Intent(actividadMadre,PerfilAmigos::class.java)
             val bundle: Bundle = Bundle()
             bundle.putParcelable("usuario",usuario)
             i.putExtras(bundle)
