@@ -86,6 +86,14 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
                         }.addOnFailureListener {
 
                     }
+                    miRef.update("usuariosBloqueados", FieldValue.arrayUnion(suEmail))
+                        .addOnSuccessListener {
+                            datos.removeAt(position)
+                            this.notifyDataSetChanged()
+                            dialog.dismiss()
+                        }.addOnFailureListener {
+
+                        }
                     referencia.update("usuariosRechazados", FieldValue.arrayUnion(miEmail))
                         .addOnSuccessListener {
                             datos.removeAt(position)
