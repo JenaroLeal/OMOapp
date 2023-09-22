@@ -46,6 +46,9 @@ class PerfilAmigos : AppCompatActivity() {
 
             binding.opcionesAmigos.setOnClickListener(){
                 val i:Intent = Intent(this, AjustesAmigos::class.java)
+                val bundle = Bundle()
+                bundle.putParcelable("usuario",usuario)
+                i.putExtras(bundle)
                 startActivity(i)
 }
     }

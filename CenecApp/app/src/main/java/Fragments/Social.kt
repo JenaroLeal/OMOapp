@@ -152,7 +152,10 @@ class social : Fragment() {
                     usuariosDeseadosDB,usuariosQueQuierenConectarDB,amigosBD,usuariosRechazadosBD,usuariosBloqueados,afinidad)
 
                 if(!stringArray.contains(user.email)){
-                    valores.add(user)
+                    if(!user.usuariosBloqueados.contains(usuario.email)){
+                        valores.add(user)
+                    }
+
 
                 }
                 sumatorio=0

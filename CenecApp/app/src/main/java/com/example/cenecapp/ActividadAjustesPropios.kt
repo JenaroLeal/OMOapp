@@ -87,7 +87,8 @@ class ActividadAjustesPropios : AppCompatActivity() {
             startActivity(i)
         }
        editarUsuariosBloqueados.setOnClickListener(){
-           Toast.makeText(this,R.string.disponibilidad,Toast.LENGTH_LONG).show()
+           val i:Intent = Intent(this,UsuariosBloqueados::class.java)
+           startActivity(i)
        }
         share.setOnClickListener(){
             Toast.makeText(this,R.string.disponibilidad,Toast.LENGTH_LONG).show()
