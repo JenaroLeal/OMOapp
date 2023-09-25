@@ -1,6 +1,7 @@
 package Fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import clases.Usuario
 import clases.UsuarioAdapter
 import com.example.cenecapp.AmigosAdapter
+import com.example.cenecapp.Funciones
 import com.example.cenecapp.R
 import com.example.cenecapp.base_fragments
+import com.example.cenecapp.base_fragments.Companion.emailEnviado
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -43,6 +46,8 @@ class amigos : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     /**

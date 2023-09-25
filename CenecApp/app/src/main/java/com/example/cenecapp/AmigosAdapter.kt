@@ -47,4 +47,6 @@ class AmigosAdapter(val actividadMadre: Activity, val datos:ArrayList<Usuario>) 
        return datos.size
     }
 
+
+
 }

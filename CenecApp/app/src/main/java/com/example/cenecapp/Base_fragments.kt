@@ -24,8 +24,6 @@ class base_fragments : AppCompatActivity() {
     private var emailLogin:String=""
     private lateinit var binding:ActivityBaseFragmentsBinding
 
-    private lateinit var auth:FirebaseAuth
-    private lateinit var dataBaseReference:DatabaseReference
 
 
     /**
@@ -96,29 +94,7 @@ class base_fragments : AppCompatActivity() {
                 // El documento no existe
             }
         }
-        /*db.collection("Usuarios").document(emailLogin).get().addOnSuccessListener {
-            var nombre: String = it.get("nombre") as String
-            var email: String = it.get("email") as String
-            var contraseña: String = it.get("password") as String
-            var ciudad: String = it.get("ciudad") as String
-            var plataforma: String = it.get("plataforma") as String
-            var juegos: ArrayList<String> = it.get("juegos") as ArrayList<String>
-            var bio: String = it.get("biografia") as String
-            var foto: String = it.get("foto") as String
-            var amigos: ArrayList<String> = it.get("amigos") as ArrayList<String>
-            var usuariosDeseados: ArrayList<String> =
-                it.get("usuariosDeseados") as ArrayList<String>
-            var usuariosQueQuierenConectar: ArrayList<String> =
-                it.get("usuariosQueQuierenConectar") as ArrayList<String>
-            var usuariosRechazadosDB: ArrayList<String> =
-                it.get("usuariosRechazados") as ArrayList<String>
-            var usuariosBloqueadosDB: ArrayList<String> =
-                it.get("usuariosBloqueados") as ArrayList<String>
 
-
-            user = Usuario(nombre, email, contraseña, ciudad, plataforma, juegos, foto, bio, false,
-                usuariosDeseados, usuariosQueQuierenConectar, amigos, usuariosRechazadosDB, usuariosBloqueadosDB, 0)
-        }*/
             /**
              * Aquí cargamos el fragment que esperará por primera vez
              */

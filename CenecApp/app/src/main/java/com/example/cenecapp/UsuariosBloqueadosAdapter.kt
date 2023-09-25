@@ -51,7 +51,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
         val miRef = db.collection("Usuarios").document(miEmail!!)
         val referencia = db.collection("Usuarios").document(suEmail.toString())
         val base = base_fragments()
-
+        var funciones = Funciones()
         holder.verPerfilBloqueado.setOnClickListener() {
             val i: Intent = Intent(actividadMadre, Perfil_Jugadores::class.java)
             val bundle: Bundle = Bundle()
@@ -82,6 +82,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
                         .addOnSuccessListener {
                             datos.removeAt(position)
                             this.notifyDataSetChanged()
+                            funciones.updateBBDD(miEmail)
                             dialog.dismiss()
                         }.addOnFailureListener {
 
@@ -98,10 +99,13 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
                         .addOnSuccessListener {
                             datos.removeAt(position)
                             this.notifyDataSetChanged()
+                            funciones.updateBBDD(miEmail)
                             dialog.dismiss()
                         }.addOnFailureListener {
 
                         }
+
+
 
                 }
                 builder.setNegativeButton("No") { dialog, _ ->
@@ -121,6 +125,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
 
                     miRef.update("usuariosBloqueados", FieldValue.arrayRemove(suEmail))
                         .addOnSuccessListener {
+                            funciones.updateBBDD(miEmail)
 
                         }.addOnFailureListener {
 
@@ -128,7 +133,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
 
 
                     miRef.update("amigos", FieldValue.arrayUnion(suEmail)).addOnSuccessListener {
-
+                        funciones.updateBBDD(miEmail)
                     }.addOnFailureListener {
 
                     }
@@ -143,6 +148,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
                     datos.removeAt(position)
                     this.notifyDataSetChanged()
                     dialog.dismiss()
+
                 }
                 builder.setNegativeButton("No") { dialog, _ ->
 

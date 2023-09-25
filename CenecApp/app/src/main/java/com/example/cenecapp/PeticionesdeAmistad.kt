@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import clases.Usuario
 import com.google.firebase.firestore.FirebaseFirestore
+import com.example.cenecapp.Funciones
 
 class PeticionesdeAmistad : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,6 +92,17 @@ class PeticionesdeAmistad : AppCompatActivity() {
             recyclerView.adapter=adapter
             recyclerView.layoutManager = LinearLayoutManager(this)
         }
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        val user = base_fragments.usuarioEnviado
+        val userEmail = user.email
+
+        var funciones = Funciones()
+        funciones.updateBBDD(userEmail!!)
 
     }
 

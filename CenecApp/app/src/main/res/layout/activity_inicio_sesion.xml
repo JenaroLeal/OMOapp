@@ -10,71 +10,71 @@
     android:background="@color/fondoPantalla"
     android:padding="10dp"
     tools:context=".Inicio_Sesion_Activity">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true">
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
+        android:fillViewport="true">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bienvenid@ de nuevo"
-            android:textSize="25sp"
-            android:padding="10dp"
-            android:layout_marginBottom="150dp"
-            android:textStyle="bold"
-            android:textColor="@color/verdeRecluciente">
-        </TextView>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bienvenid@ de nuevo"
+                android:textSize="25sp"
+                android:padding="10dp"
+                android:layout_marginBottom="150dp"
+                android:textStyle="bold"
+                android:textColor="@color/verdeRecluciente">
+            </TextView>
 
-        <EditText
-            android:id="@+id/emailInicioSesion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Introduce tu email"
-            android:padding="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/colorTextos"
-            android:layout_marginBottom="15dp">
+            <EditText
+                android:id="@+id/emailInicioSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Introduce tu email"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorTextos"
+                android:layout_marginBottom="15dp">
 
-        </EditText>
+            </EditText>
 
-        <EditText
-            android:id="@+id/contraseñaInicioSesion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/colorTextos"></EditText>
+            <EditText
+                android:id="@+id/contraseñaInicioSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorTextos"></EditText>
 
-        <TextView
-            android:id="@+id/btnInicioSesion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btnSiguiente"
-            android:textColor="@color/verdeRecluciente"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp">
-        </TextView>
-        <TextView
-            android:id="@+id/btnRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="¿No tienes cuenta? ¡Registrate!"
-            android:textColor="@color/verdeRecluciente"
-            android:textStyle="italic"
-            android:textSize="12sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp">
-        </TextView>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/btnInicioSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnSiguiente"
+                android:textColor="@color/verdeRecluciente"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp">
+            </TextView>
+            <TextView
+                android:id="@+id/btnRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿No tienes cuenta? ¡Registrate!"
+                android:textColor="@color/verdeRecluciente"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp">
+            </TextView>
+        </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
 
 </LinearLayout>

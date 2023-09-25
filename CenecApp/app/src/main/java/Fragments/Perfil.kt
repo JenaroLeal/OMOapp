@@ -185,4 +185,6 @@ class perfil : Fragment() {
     override fun onResume() {
         super.onResume()
     }
+
+
 }

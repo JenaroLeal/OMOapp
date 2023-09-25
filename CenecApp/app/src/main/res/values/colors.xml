@@ -19,4 +19,8 @@
     <color name="fondoPantalla">#0E0430</color>
     <color name="colorTextos">#9980E7</color>
     <color name="blancoOpaco">#33FFFFFF</color>
+
+    <color name="primary_color">#3498db</color>
+
+    <color name="primary_text_color">#333333</color>
 </resources>

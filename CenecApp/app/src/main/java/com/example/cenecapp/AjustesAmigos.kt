@@ -29,6 +29,8 @@ class AjustesAmigos : AppCompatActivity() {
         val miRef = db.collection("Usuarios").document(miEmail!!)
         val referencia = db.collection("Usuarios").document(suEmail.toString())
 
+        var funciones = Funciones()
+
 
         denunciar.setOnClickListener() {
 
@@ -41,6 +43,7 @@ class AjustesAmigos : AppCompatActivity() {
                 // Perform action when "Yes" button is clicked
 
                 referencia.update("amigos", FieldValue.arrayRemove(miEmail)).addOnSuccessListener {
+                    funciones.updateBBDD(miEmail)
 
                 }.addOnFailureListener {
 
@@ -48,6 +51,7 @@ class AjustesAmigos : AppCompatActivity() {
 
 
                 miRef.update("amigos", FieldValue.arrayRemove(suEmail)).addOnSuccessListener {
+                    funciones.updateBBDD(miEmail)
 
                 }.addOnFailureListener {
 
@@ -55,10 +59,12 @@ class AjustesAmigos : AppCompatActivity() {
 
                 miRef.update("usuariosBloqueados", FieldValue.arrayUnion(suEmail))
                     .addOnSuccessListener {
+                        funciones.updateBBDD(miEmail)
 
                     }.addOnFailureListener {
 
                 }
+
 
 
             }
@@ -82,12 +88,14 @@ class AjustesAmigos : AppCompatActivity() {
 
                 miRef.update("usuariosRechazados", FieldValue.arrayUnion(suEmail))
                     .addOnSuccessListener {
+                        funciones.updateBBDD(miEmail)
 
                     }.addOnFailureListener {
 
                     }
                 referencia.update("usuariosRechazados", FieldValue.arrayUnion(miEmail))
                     .addOnSuccessListener {
+                        funciones.updateBBDD(miEmail)
 
                     }.addOnFailureListener {
 
@@ -102,5 +110,12 @@ class AjustesAmigos : AppCompatActivity() {
             dialog.show()
 
         }
+    }
+
+    override fun onBackPressed() {
+        var funciones = Funciones()
+        val miEmail = FirebaseAuth.getInstance().currentUser?.email
+        funciones.updateBBDD(miEmail!!)
+        super.onBackPressed()
     }
 }
