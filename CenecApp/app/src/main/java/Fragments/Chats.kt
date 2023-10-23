@@ -5,9 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import clases.Usuario
+import com.example.cenecapp.AmigosAdapter
 import com.example.cenecapp.R
+import com.example.cenecapp.UserChatAdapter
 import com.example.cenecapp.base_fragments
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -43,13 +50,74 @@ class chats : Fragment() {
      * @return el fragment cargado con todos los componenter
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var emailRecibido:String = base_fragments.Companion.emailEnviado
-        mAuth=FirebaseAuth.getInstance()
-        db.collection("Usuarios").document(emailRecibido).get().addOnSuccessListener {
-            var nombre:String=it.get("nombre") as String
+        val component:View=inflater.inflate(R.layout.fragment_chats, container, false)
+
+        val usuario: Usuario = base_fragments.Companion.usuarioEnviado
+        val db = FirebaseFirestore.getInstance()
+        val stringArray = usuario.amigos.toMutableList()
+
+        var sumatorio:Int=0
+
+        val juegosUser = Array<String>(usuario.juegos.size) { i ->
+            usuario.juegos[i]
+        }
+        val valores:ArrayList<Usuario> = arrayListOf<Usuario>()
+        db.collection("Usuarios").get().addOnSuccessListener {
+            for (usuarios in it) {
+                var nombreDB: String? = usuarios.getString("nombre")
+                var emailDB: String? = usuarios.getString("email")
+                var passwordDB: String? = usuarios.getString("password")
+                var ciudadDB: String? = usuarios.getString("ciudad")
+                var plataformaBD: String? = usuarios.getString("plataforma")
+                var juegosDB: ArrayList<String> = usuarios.get("juegos") as ArrayList<String>
+                var bioBD: String? = usuarios.getString("biografia")
+                var amigosBD: ArrayList<String> = usuarios.get("amigos") as ArrayList<String>
+                var usuariosDeseadosDB: ArrayList<String> =
+                    usuarios.get("usuariosDeseados") as ArrayList<String>
+                var usuariosQueQuierenConectarDB: ArrayList<String> =
+                    usuarios.get("usuariosQueQuierenConectar") as ArrayList<String>
+                var usuariosRechazadosDB: ArrayList<String> =
+                    usuarios.get("usuariosRechazados") as ArrayList<String>
+                var usuariosBloqueadosDB: ArrayList<String> =
+                    usuarios.get("usuariosRechazados") as ArrayList<String>
+
+                var juegosUsuario = juegosDB
+                for (i in 0 until juegosUser.size) {
+                    for (j in 0 until juegosUsuario.size) {
+                        val juego: String = juegosUser.get(i)
+                        if (juego.equals(juegosUsuario.get(j))) {
+                            sumatorio += 12
+                        }
+                    }
+                }
+                if (usuario.plataforma == plataformaBD) {
+                    sumatorio += 25
+                }
+
+                if (usuario.ciudad == ciudadDB) {
+                    sumatorio += 15
+                }
+
+                val user: Usuario = Usuario(nombreDB!!, emailDB!!, passwordDB!!, ciudadDB, plataformaBD, juegosDB, "", bioBD!!,
+                    false, usuariosDeseadosDB, usuariosQueQuierenConectarDB, amigosBD, usuariosRechazadosDB, usuariosBloqueadosDB, sumatorio)
+                if (stringArray.contains(user.email)) {
+                    valores.add(user)
+                }
+
+                sumatorio = 0
+            }
+            val recyclerView: RecyclerView = component.findViewById(R.id.mainUserRecyclerView)
+
+            recyclerView.layoutManager = LinearLayoutManager(component.context)
+            recyclerView.adapter= this.activity?.let { it1 -> UserChatAdapter(it1,valores) }
+            recyclerView.layoutManager = LinearLayoutManager(component.context)
+
         }
 
-        return inflater.inflate(R.layout.fragment_chats, container, false)
+
+
+
+        return component
     }
 
     companion object {

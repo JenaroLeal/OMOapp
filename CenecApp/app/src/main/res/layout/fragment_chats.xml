@@ -8,18 +8,26 @@
     android:orientation="vertical"
     android:background="@drawable/gradiente3"
     tools:context="Fragments.chats">
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/disponibilidad"
-            android:textColor="@color/white"
-            android:textSize="20sp">
-
-        </TextView>
-    </LinearLayout>
+        android:text="Ventana de Chats"
+        android:textSize="30sp"
+        android:textColor="@color/white">
+    </TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainUserRecyclerView"
+        android:layout_width="376dp"
+        android:layout_height="380dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="104dp" />
     </LinearLayout>
