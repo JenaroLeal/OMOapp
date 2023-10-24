@@ -3,8 +3,11 @@ package com.example.cenecapp
 import Fragments.chats
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +24,7 @@ class UserChatAdapter (val actividadMadre: Activity, val datos:ArrayList<Usuario
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewholder {
-       return viewholder(actividadMadre.layoutInflater.inflate(R.layout.amigos_recycler,parent,false))
+       return viewholder(actividadMadre.layoutInflater.inflate(R.layout.chats_recycler,parent,false))
     }
 
     override fun onBindViewHolder(holder: viewholder, position: Int) {
@@ -34,6 +37,15 @@ class UserChatAdapter (val actividadMadre: Activity, val datos:ArrayList<Usuario
         storageRef.downloadUrl.addOnSuccessListener { uri->
             Glide.with(holder.itemView.context).load(uri).into(foto)
         }
+
+        holder.usuarioChat.setOnClickListener(){
+
+            val i: Intent = Intent(actividadMadre,chatwindo::class.java)
+            //val bundle: Bundle = Bundle()
+            //bundle.putParcelable("usuario",usuario)
+            //i.putExtras(bundle)
+            actividadMadre.startActivity(i)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -44,10 +56,12 @@ class UserChatAdapter (val actividadMadre: Activity, val datos:ArrayList<Usuario
     class viewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var userimg: CircleImageView
         var username: TextView
+        var usuarioChat:LinearLayout
 
         init {
-            userimg = itemView.findViewById(R.id.imgAmigo)
-            username = itemView.findViewById(R.id.nombreAmigo)
+            userimg = itemView.findViewById(R.id.imgAmigoChat)
+            username = itemView.findViewById(R.id.nombreAmigoChat)
+            usuarioChat = itemView.findViewById(R.id.chatAmigo)
 
         }
     }

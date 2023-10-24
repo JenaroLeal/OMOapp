@@ -1,6 +1,6 @@
 package com.example.cenecapp
 
-class msgModelclass {
+class msgModelclass(message: String, SenderUID: String, time: Long) {
     var message: String? = null
     var senderid: String? = null
     var timeStamp: Long = 0

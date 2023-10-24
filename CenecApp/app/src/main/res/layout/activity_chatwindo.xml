@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".chatwindo">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileimgg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center">
+    </de.hdodenhof.circleimageview.CircleImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recivername"
+        android:textAlignment="center">
+    </TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/msgadapter"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center">
+    </androidx.recyclerview.widget.RecyclerView>
+    <EditText
+        android:id="@+id/textmsg"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center">
+    </EditText>
+    <Button
+        android:id="@+id/sendbtnn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Enviar">
+    </Button>
+</LinearLayout>

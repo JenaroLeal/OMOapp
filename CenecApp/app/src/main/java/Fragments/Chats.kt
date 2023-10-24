@@ -1,5 +1,6 @@
 package Fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,6 +22,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private var emailLogin:String = ""
+private lateinit var contexto:Context
 
 /**
  * Clase de tipo Fragment que nos permite usar la parte de chats con aquellos contactos que tengamos como amigos
@@ -51,6 +54,10 @@ class chats : Fragment() {
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val component:View=inflater.inflate(R.layout.fragment_chats, container, false)
+
+        contexto=requireActivity()
+        val bundleRecibido:Bundle? = this.activity?.intent?.extras
+        emailLogin=""+bundleRecibido?.getString("email")
 
         val usuario: Usuario = base_fragments.Companion.usuarioEnviado
         val db = FirebaseFirestore.getInstance()
@@ -122,6 +129,7 @@ class chats : Fragment() {
 
     companion object {
 
+        var emailEnviadologin:String=""
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             chats().apply {
@@ -130,5 +138,9 @@ class chats : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 }
