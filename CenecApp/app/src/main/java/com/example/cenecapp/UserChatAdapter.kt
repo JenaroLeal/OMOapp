@@ -40,10 +40,10 @@ class UserChatAdapter (val actividadMadre: Activity, val datos:ArrayList<Usuario
 
         holder.usuarioChat.setOnClickListener(){
 
-            val i: Intent = Intent(actividadMadre,chatwindo::class.java)
-            //val bundle: Bundle = Bundle()
-            //bundle.putParcelable("usuario",usuario)
-            //i.putExtras(bundle)
+            val i: Intent = Intent(actividadMadre,AAblanco::class.java)
+            val bundle: Bundle = Bundle()
+            bundle.putParcelable("usuario",usuario)
+            i.putExtras(bundle)
             actividadMadre.startActivity(i)
         }
     }
