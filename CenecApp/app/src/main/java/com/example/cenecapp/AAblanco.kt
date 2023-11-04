@@ -2,18 +2,26 @@ package com.example.cenecapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import clases.Usuario
+import com.bumptech.glide.Glide
+import com.example.cenecapp.databinding.ActivityAablancoBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import de.hdodenhof.circleimageview.CircleImageView
 
 class AAblanco : AppCompatActivity() {
+
+    private lateinit var binding:ActivityAablancoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_aablanco)
-        var txt1:TextView=findViewById(R.id.txt1)
-        var txt2:TextView=findViewById(R.id.txt2)
-        var txt3:TextView=findViewById(R.id.txt3)
+        binding=ActivityAablancoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         var yo: Usuario =base_fragments.Companion.usuarioEnviado
         var db= FirebaseFirestore.getInstance()
@@ -23,6 +31,53 @@ class AAblanco : AppCompatActivity() {
         var usuario: Usuario? = null
         usuario = bundle!!.getParcelable<Usuario>("usuario")
 
-        txt1.text=yo.nombre+ usuario!!.nombre
+        var foto:CircleImageView=binding.imgFotoChat
+        val storageRef = FirebaseStorage.getInstance().reference.child("User/"+ usuario!!.email.toString())
+        storageRef.downloadUrl.addOnSuccessListener { uri->
+            Glide.with(this).load(uri.toString()).into(foto)
+        }
+
+        binding.nombreAmigoChatActual.text=usuario.nombre
+
+        binding.btnEnviarMensaje.setOnClickListener {
+            val messageText = binding.textoMensaje.text.toString()
+            if (messageText.isNotEmpty()) {
+                val chatDocRef = db.collection("chats")
+                    .document("${yo.email}${usuario.email}")
+
+                chatDocRef.get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        if (documentSnapshot.exists()) {
+                            // The chat document exists; update the messages
+                            val message = msgModelclass(messageText, yo.email!!, System.currentTimeMillis())
+                            chatDocRef.update("messages", FieldValue.arrayUnion(message))
+                                .addOnSuccessListener {
+                                    // Message sent successfully
+                                    binding.textoMensaje.text.clear() // Clear the input field
+                                }
+                                .addOnFailureListener { e ->
+                                    // Handle the error
+                                   Toast.makeText(this,"Error al enviar mensaje",Toast.LENGTH_LONG).show()
+                                }
+                        } else {
+                            // The chat document doesn't exist; create it and add the first message
+                            val chatData = hashMapOf(
+                                "messages" to listOf(msgModelclass(messageText, yo.email!!, System.currentTimeMillis()))
+                            )
+                            chatDocRef.set(chatData)
+                                .addOnSuccessListener {
+                                    // Message sent successfully
+                                    binding.textoMensaje.text.clear() // Clear the input field
+                                }
+                                .addOnFailureListener { e ->
+                                    // Handle the error
+                                    Toast.makeText(this,"Error al crear chat",Toast.LENGTH_LONG).show()
+                                }
+                        }
+                    }
+            }
+        }
+
+
     }
 }

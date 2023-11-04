@@ -1,18 +1,16 @@
 package com.example.cenecapp
 
-class msgModelclass(message: String, SenderUID: String, time: Long) {
-    var message: String? = null
-    var senderid: String? = null
-    var timeStamp: Long = 0
+class msgModelclass {
+    lateinit var message: String
+   lateinit var senderid: String
+    var timeStamp: Long = System.currentTimeMillis()
 
-    fun msgModelclass() {}
-
-    fun msgModelclass(message: String?, senderid: String?, timeStamp: Long) {
-        this.message = message
-        this.senderid = senderid
-        this.timeStamp = timeStamp
+    constructor(message:String,senderid:String,time:Long):this(){
+        this.message=message
+        this.senderid=senderid
+        this.timeStamp=time
     }
 
-
+    constructor()
 
 }
