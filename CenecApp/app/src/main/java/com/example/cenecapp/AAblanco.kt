@@ -33,6 +33,9 @@ class AAblanco : AppCompatActivity() {
 
         var foto:CircleImageView=binding.imgFotoChat
         val storageRef = FirebaseStorage.getInstance().reference.child("User/"+ usuario!!.email.toString())
+
+
+
         storageRef.downloadUrl.addOnSuccessListener { uri->
             Glide.with(this).load(uri.toString()).into(foto)
         }
@@ -42,15 +45,21 @@ class AAblanco : AppCompatActivity() {
         binding.btnEnviarMensaje.setOnClickListener {
             val messageText = binding.textoMensaje.text.toString()
             if (messageText.isNotEmpty()) {
-                val chatDocRef = db.collection("chats")
-                    .document("${yo.email}${usuario.email}")
+                val user1Id = yo.email
+                val user2Id = usuario.email
+                val conversationId = if (user1Id!! < user2Id!!) {
+                    "${user1Id}_${user2Id}"
+                } else {
+                    "${user2Id}_${user1Id}"
+                }
+                val sender = db.collection("chats").document(conversationId)
 
-                chatDocRef.get()
-                    .addOnSuccessListener { documentSnapshot ->
+
+                sender.get().addOnSuccessListener { documentSnapshot ->
                         if (documentSnapshot.exists()) {
                             // The chat document exists; update the messages
-                            val message = msgModelclass(messageText, yo.email!!, System.currentTimeMillis())
-                            chatDocRef.update("messages", FieldValue.arrayUnion(message))
+                            val message = msgModelclass(messageText, yo.email!!,usuario.email!!, System.currentTimeMillis())
+                            sender.update("messages", FieldValue.arrayUnion(message))
                                 .addOnSuccessListener {
                                     // Message sent successfully
                                     binding.textoMensaje.text.clear() // Clear the input field
@@ -62,9 +71,9 @@ class AAblanco : AppCompatActivity() {
                         } else {
                             // The chat document doesn't exist; create it and add the first message
                             val chatData = hashMapOf(
-                                "messages" to listOf(msgModelclass(messageText, yo.email!!, System.currentTimeMillis()))
+                                "messages" to listOf(msgModelclass(messageText, yo.email!!,usuario.email!!, System.currentTimeMillis()))
                             )
-                            chatDocRef.set(chatData)
+                            sender.set(chatData)
                                 .addOnSuccessListener {
                                     // Message sent successfully
                                     binding.textoMensaje.text.clear() // Clear the input field
@@ -75,6 +84,7 @@ class AAblanco : AppCompatActivity() {
                                 }
                         }
                     }
+
             }
         }
 

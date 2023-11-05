@@ -17,18 +17,26 @@ class MessagesAdapter( private val context: Context, private val messagesAdapter
     private val ITEM_RECEIVE = 2
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == ITEM_SEND) {
+        if (viewType==ITEM_SEND){
+            var view:View = LayoutInflater.from(context).inflate(R.layout.sender_layout,parent,false)
+            return SenderViewHolder(view)
+        }
+        else{
+            var view:View=LayoutInflater.from(context).inflate(R.layout.reciver_layout,parent,false)
+            return ReceiverViewHolder(view)
+        }
+       /* return if (viewType == ITEM_SEND) {
 
             val view = LayoutInflater.from(context).inflate(R.layout.sender_layout, parent, false)
             SenderViewHolder(view)
         } else {
             val view = LayoutInflater.from(context).inflate(R.layout.reciver_layout, parent, false)
             ReceiverViewHolder(view)
-        }
+        }*/
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val messages = messagesAdapterArrayList[position]
+        val messages:msgModelclass = messagesAdapterArrayList[position]
 
         holder.itemView.setOnLongClickListener {
             AlertDialog.Builder(context)
@@ -57,11 +65,11 @@ class MessagesAdapter( private val context: Context, private val messagesAdapter
     }
 
     override fun getItemViewType(position: Int): Int {
-        val messages = messagesAdapterArrayList[position]
-        return if (FirebaseAuth.getInstance().currentUser?.uid == messages.senderid) {
-            ITEM_SEND
+        val messages:msgModelclass = messagesAdapterArrayList[position]
+        if (FirebaseAuth.getInstance().currentUser?.email == messages.senderid) {
+            return ITEM_SEND
         } else {
-            ITEM_RECEIVE
+           return  ITEM_RECEIVE
         }
     }
 

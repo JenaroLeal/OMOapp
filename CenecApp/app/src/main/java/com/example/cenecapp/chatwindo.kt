@@ -15,48 +15,68 @@ import com.google.firebase.database.*
 import com.google.firebase.database.annotations.Nullable
 import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.util.*
 
 class chatwindo : AppCompatActivity() {
-
-    lateinit var reciverimg: String
-    lateinit var reciverUid: String
-    lateinit var reciverName: String
-    lateinit var SenderUID: String
-    lateinit var profile: CircleImageView
-    lateinit var reciverNName: TextView
-    lateinit var database: FirebaseDatabase
-    lateinit var firebaseAuth: FirebaseAuth
-    lateinit var senderImg: String
-    lateinit var reciverIImg: String
-    lateinit var sendbtn: CardView
-    lateinit var textmsg: EditText
-    lateinit var senderRoom: String
-    lateinit var reciverRoom: String
-    lateinit var messageAdpter: RecyclerView
-    lateinit var messagesArrayList: ArrayList<msgModelclass>
-    lateinit var mmessagesAdpter:MessagesAdapter
-
+    private lateinit var reciverimg: String
+    private lateinit var reciverUid: String
+    private lateinit var reciverName: String
+    private lateinit var senderUid: String
+    private lateinit var profile: CircleImageView
+    private lateinit var reciverNName: TextView
+    private lateinit var database: FirebaseDatabase
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var senderImg: String
+    private lateinit var reciverIImg: String
+    private lateinit var sendbtn: CardView
+    private lateinit var textmsg: EditText
+    private lateinit var senderRoom: String
+    private lateinit var reciverRoom: String
+    private lateinit var messageAdapter: RecyclerView
+    private lateinit var messagesArrayList: ArrayList<msgModelclass>
+    private lateinit var messagesAdapter: MessagesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chatwindo)
+        supportActionBar?.hide()
+        database = FirebaseDatabase.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
 
-        var usuario: Usuario =base_fragments.Companion.usuarioEnviado
-        var db= FirebaseFirestore.getInstance()
-        val miEmail = FirebaseAuth.getInstance().currentUser?.email
-        val miRef=db.collection("Usuarios").document(miEmail!!)
+        var bundle:Bundle? = this.intent.extras
+        var usuario: Usuario? = null
+        usuario = bundle!!.getParcelable<Usuario>("usuario")
 
-        sendbtn=findViewById(R.id.sendbtnn)
-        textmsg=findViewById(R.id.textmsg)
-        reciverNName=findViewById(R.id.recivername)
-        profile=findViewById(R.id.profileimgg)
-        messageAdpter=findViewById(R.id.msgadapter)
-        var linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this)
-        linearLayoutManager.stackFromEnd
-        messageAdpter.layoutManager = linearLayoutManager
-        mmessagesAdpter = MessagesAdapter(this,messagesArrayList)
-        messageAdpter.adapter = mmessagesAdpter
+        var yo:Usuario = base_fragments.Companion.usuarioEnviado
+
+        reciverName = usuario!!.nombre!!
+        reciverUid = usuario!!.email!!
+
+        messagesArrayList = ArrayList()
+
+        sendbtn = findViewById(R.id.sendbtnn)
+        textmsg = findViewById(R.id.textmsg)
+        reciverNName = findViewById(R.id.recivername)
+        profile = findViewById(R.id.profileimgg)
+        messageAdapter = findViewById(R.id.msgadapter)
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.stackFromEnd = true
+        messageAdapter.layoutManager = linearLayoutManager
+        messagesAdapter = MessagesAdapter(this, messagesArrayList)
+        messageAdapter.adapter = messagesAdapter
+
+
+        reciverNName.text = reciverName
+
+        senderUid = yo.email!!
+
+        senderRoom = "$senderUid$reciverUid"
+        reciverRoom = "$reciverUid$senderUid"
+
+
 
 
     }
