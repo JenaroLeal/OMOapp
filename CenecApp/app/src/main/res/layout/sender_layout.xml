@@ -2,14 +2,16 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="end">
     <TextView
         android:id="@+id/msgsendertyp"
         android:layout_margin="10dp"
         android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="texto_enviado">
+        android:hint="texto_enviado"
+        android:textColor="@color/white">
     </TextView>
 
 </LinearLayout>
