@@ -18,19 +18,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
 
-class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayList<Usuario>) :
-    RecyclerView.Adapter<UsuariosBloqueados_ViewHolder>() {
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): UsuariosBloqueados_ViewHolder {
-        return UsuariosBloqueados_ViewHolder(
-            actividadMadre.layoutInflater.inflate(
-                R.layout.usuariosbloqueados,
-                parent,
-                false
-            )
-        )
+class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayList<Usuario>) : RecyclerView.Adapter<UsuariosBloqueados_ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuariosBloqueados_ViewHolder {
+        return UsuariosBloqueados_ViewHolder(actividadMadre.layoutInflater.inflate(R.layout.usuariosbloqueados, parent, false))
     }
 
     override fun onBindViewHolder(holder: UsuariosBloqueados_ViewHolder, position: Int) {
@@ -52,6 +42,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
         val referencia = db.collection("Usuarios").document(suEmail.toString())
         val base = base_fragments()
         var funciones = Funciones()
+
         holder.verPerfilBloqueado.setOnClickListener() {
             val i: Intent = Intent(actividadMadre, Perfil_Jugadores::class.java)
             val bundle: Bundle = Bundle()
