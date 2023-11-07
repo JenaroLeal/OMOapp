@@ -13,14 +13,12 @@
     <color name="verde">#92D747</color>
     <color name="verdeOscuro">#33D639</color>
     <color name="verdeRecluciente">#8CE42F</color>
-
     <color name="gris">#7A7979</color>
     <color name="fondoTarjeta">#1F1947</color>
     <color name="fondoPantalla">#0E0430</color>
     <color name="colorTextos">#9980E7</color>
     <color name="blancoOpaco">#33FFFFFF</color>
-
     <color name="primary_color">#3498db</color>
-
+    <color name="gris_roto">#869cbc</color>
     <color name="primary_text_color">#333333</color>
 </resources>
