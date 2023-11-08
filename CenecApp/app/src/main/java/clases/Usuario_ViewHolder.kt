@@ -6,6 +6,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 import com.example.cenecapp.R
@@ -18,15 +19,16 @@ import de.hdodenhof.circleimageview.CircleImageView
 class Usuario_ViewHolder(view: View):ViewHolder(view) {
 
 
-    val nombre:TextView by lazy { view.findViewById(R.id.nombreUsuario) }
-    val amigos:TextView by lazy {view.findViewById(R.id.amigos)}
-    val amigosComun:TextView by lazy {view.findViewById(R.id.amigosComun)}
-    val afinidad:TextView by lazy { view.findViewById(R.id.afinidadUsuario) }
-    val fotoPerfil:CircleImageView by lazy {view.findViewById(R.id.imgPerfil)}
+    val nombre:TextView by lazy { view.findViewById(R.id.nombreJugadorLista) }
+    val amigos:TextView by lazy {view.findViewById(R.id.amigosJugador)}
+    val amigosComun:TextView by lazy {view.findViewById(R.id.amigosEnComunJugador)}
+    val afinidad:TextView by lazy { view.findViewById(R.id.afinidadConJugador) }
+    val fotoPerfil:CircleImageView by lazy {view.findViewById(R.id.imgPerfilJugador)}
+    val biografia:TextView by lazy { view.findViewById(R.id.biografiaJugadorLista) }
 
 
-    val btnEliminar:ImageButton by lazy {view.findViewById(R.id.btnDescartarJugador)}
-    val btnVer:LinearLayout by lazy { view.findViewById(R.id.btnVerPerfilJugador) }
-    val btnConectar:ImageButton by lazy{view.findViewById(R.id.btnConectarJugador)}
+    val btnEliminar:ImageButton by lazy {view.findViewById(R.id.btnDescartarAJugador)}
+    val btnVer:CardView by lazy { view.findViewById(R.id.cardVerPerfil) }
+    val btnConectar:ImageButton by lazy{view.findViewById(R.id.btnConectarAJugador)}
 
 }

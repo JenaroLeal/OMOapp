@@ -5,7 +5,9 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +49,10 @@ class UsuarioAdapter(val actividadMadre:Activity, val datos:ArrayList<Usuario>):
         }
         holder.amigosComun.text=amigosComun.toString()
         val fotopefil:CircleImageView=holder.fotoPerfil
+        holder.biografia.text=usuario.biografia
+
+
+
 
 
         val storageRef = FirebaseStorage.getInstance().reference.child("User/"+usuario.email.toString())
