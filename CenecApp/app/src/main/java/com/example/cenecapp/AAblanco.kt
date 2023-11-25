@@ -43,8 +43,20 @@ class AAblanco : AppCompatActivity() {
 
         val adapter: MessagesAdapter = MessagesAdapter(this, valores)
         val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.recyclerChats)
+        var layoutManager = LinearLayoutManager(this)
+        layoutManager.stackFromEnd = true
+        recyclerView.layoutManager =layoutManager
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+                val adapterPosition = adapter.getItemCount()
+                recyclerView.smoothScrollToPosition(adapterPosition)
+            }
+        })
+
+
 
         messagesLiveData.observe(this, Observer { updatedMessages ->
             valores.clear()
