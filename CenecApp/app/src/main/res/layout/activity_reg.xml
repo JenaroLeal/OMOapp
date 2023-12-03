@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegActivity"
-    android:background="@color/fondoPantalla">
+    android:orientation="vertical"
+    tools:context=".RegActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:fillViewport="true">
+        android:layout_marginTop="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,6 +21,14 @@
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Introduce tus datos"
+                android:textSize="20sp"
+                android:padding="20dp"
+                android:textColor="@color/black">
+            </TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,7 +49,7 @@
                     android:background="@drawable/edittext"
                     android:hint="@string/hintNombreusuario"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gris"
                     android:inputType="textPersonName" />
 
@@ -66,7 +74,7 @@
                     android:hint="@string/hintEmailUsuario"
                     android:inputType="textEmailAddress"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gris" />
 
             </LinearLayout>
@@ -87,7 +95,7 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:background="@drawable/edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textAlignment="center"
                     android:textColorHint="@color/gris"
                     android:hint="@string/hintPasswordUsuario"
@@ -111,7 +119,7 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:background="@drawable/edittext"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textAlignment="center"
                     android:textColorHint="@color/gris"
                     android:hint="Confirmar contraseña"
@@ -126,7 +134,7 @@
                 android:padding="15dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:text="@string/usuarioExistente"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -141,13 +149,12 @@
                     android:id="@+id/leerTerminos"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:gravity="center"
                     android:textStyle="italic"
                     android:text="@string/terminosYCondiciones">
                 </TextView>
             </LinearLayout>
-
 
             <ProgressBar
                 android:id="@+id/pBar"
@@ -160,18 +167,18 @@
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal">
             </ProgressBar>
-            <TextView
+            <Button
                 android:id="@+id/btnSiguiente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btnSiguiente"
-                android:textColor="@color/verdeRecluciente"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/black"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textSize="20sp">
-
-            </TextView>
+            </Button>
 
         </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

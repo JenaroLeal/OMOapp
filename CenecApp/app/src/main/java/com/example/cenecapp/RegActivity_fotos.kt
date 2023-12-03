@@ -10,10 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.NonNull
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.tasks.Task
@@ -39,7 +36,7 @@ class RegActivity_fotos : AppCompatActivity() {
     private var emailFinal:String=""
     private val permisoGaleria:Int = 100
     private lateinit var imagen:CircleImageView
-    private lateinit var btnFin:TextView
+    private lateinit var btnFin: Button
     private lateinit var bioJugador:EditText
     private val db = FirebaseFirestore.getInstance()
     private lateinit var spinner:ProgressBar

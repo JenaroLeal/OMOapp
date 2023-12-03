@@ -24,11 +24,9 @@ class Usuario_ViewHolder(view: View):ViewHolder(view) {
     val amigosComun:TextView by lazy {view.findViewById(R.id.amigosEnComunJugador)}
     val afinidad:TextView by lazy { view.findViewById(R.id.afinidadConJugador) }
     val fotoPerfil:CircleImageView by lazy {view.findViewById(R.id.imgPerfilJugador)}
-    val biografia:TextView by lazy { view.findViewById(R.id.biografiaJugadorLista) }
 
-
-    val btnEliminar:ImageButton by lazy {view.findViewById(R.id.btnDescartarAJugador)}
+    val btnEliminar:Button by lazy {view.findViewById(R.id.btnDescartarAJugador)}
     val btnVer:CardView by lazy { view.findViewById(R.id.cardVerPerfil) }
-    val btnConectar:ImageButton by lazy{view.findViewById(R.id.btnConectarAJugador)}
+    val btnConectar:Button by lazy{view.findViewById(R.id.btnConectarAJugador)}
 
 }

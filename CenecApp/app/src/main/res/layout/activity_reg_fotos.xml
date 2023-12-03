@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegActivity_fotos"
-    android:orientation="vertical"
-    android:background="@color/fondoPantalla">
+    android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,18 +19,34 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:orientation="vertical">
-
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Elige tu foto de perfil"
+                android:textSize="20sp"
+                android:padding="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black">
+            </TextView>
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/foto1"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="120dp"
                 android:src="@drawable/foto2png"
-                app:civ_border_color="@color/verdeRecluciente"
-                app:civ_border_width="2dp"></de.hdodenhof.circleimageview.CircleImageView>
+                app:civ_border_color="@color/black"
+                app:civ_border_width="2dp">
+            </de.hdodenhof.circleimageview.CircleImageView>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Introduce una biografía"
+                android:textSize="20sp"
+                android:padding="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black">
+            </TextView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,14 +67,13 @@
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textAlignment="center"
                     android:background="@drawable/edittext"
                     android:hint="@string/sobremi"
                     android:textColorHint="@color/gris">
                 </EditText>
             </LinearLayout>
-
 
             <ProgressBar
                 android:id="@+id/spinner4"
@@ -70,22 +84,22 @@
                 android:max="100"
                 android:progress="100"
                 android:progressTint="@color/verdeRecluciente"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center">
 
             </ProgressBar>
-            <TextView
+            <Button
                 android:id="@+id/btnFinalizar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/btnSiguiente"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/black"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:text="@string/btnFin"
-                android:textColor="@color/verdeRecluciente"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="60dp">
-            </TextView>
+                android:textSize="20sp">
+            </Button>
 
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

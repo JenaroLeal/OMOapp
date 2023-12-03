@@ -166,7 +166,7 @@ class social : Fragment() {
             val recyclerView: RecyclerView =component.findViewById<RecyclerView>(R.id.contenedorReciclerFragment)
             recyclerView.adapter?.notifyDataSetChanged()
             recyclerView.adapter= this.activity?.let { it1 -> UsuarioAdapter(it1,valores) }
-            recyclerView.layoutManager= LinearLayoutManager(component.context,LinearLayoutManager.HORIZONTAL,false)
+            recyclerView.layoutManager= LinearLayoutManager(component.context,LinearLayoutManager.VERTICAL,false)
 
         }
 

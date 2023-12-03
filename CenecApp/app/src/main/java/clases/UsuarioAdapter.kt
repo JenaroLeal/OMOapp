@@ -3,6 +3,7 @@ package clases
 import Fragments.amigos
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cenecapp.Perfil_Jugadores
@@ -26,8 +28,9 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class UsuarioAdapter(val actividadMadre:Activity, val datos:ArrayList<Usuario>):RecyclerView.Adapter<Usuario_ViewHolder>() {
 
-
+private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Usuario_ViewHolder {
+        context = parent.context
         return Usuario_ViewHolder(actividadMadre.layoutInflater.inflate(R.layout.elementos_chats_recicler,parent,false))
     }
 
@@ -36,8 +39,17 @@ class UsuarioAdapter(val actividadMadre:Activity, val datos:ArrayList<Usuario>):
         var db= FirebaseFirestore.getInstance()
         val usuario:Usuario=datos.get(position)
         var amigosComun:Int = 0
-        holder.nombre.text=usuario.nombre
+        val rojo = ContextCompat.getColor(context,R.color.rojoRecluciente)
+        val verde = ContextCompat.getColor(context,R.color.verde)
+
+        holder.nombre.text=usuario.nombre+" "
         holder.afinidad.text=usuario.afinidad.toString()+"%"
+        if (usuario.afinidad < 50 ){
+            holder.afinidad.setTextColor(rojo)
+        }else{
+            holder.afinidad.setTextColor(verde)
+        }
+
         holder.amigos.text=usuario.amigos.size.toString()
 
         var yo:Usuario= base_fragments.Companion.usuarioEnviado
@@ -49,11 +61,6 @@ class UsuarioAdapter(val actividadMadre:Activity, val datos:ArrayList<Usuario>):
         }
         holder.amigosComun.text=amigosComun.toString()
         val fotopefil:CircleImageView=holder.fotoPerfil
-        holder.biografia.text=usuario.biografia
-
-
-
-
 
         val storageRef = FirebaseStorage.getInstance().reference.child("User/"+usuario.email.toString())
         storageRef.downloadUrl.addOnSuccessListener { uri->

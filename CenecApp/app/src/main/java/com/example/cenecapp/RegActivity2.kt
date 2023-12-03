@@ -22,7 +22,7 @@ class RegActivity2 : AppCompatActivity() {
 
     private lateinit var campoCiudad:Spinner
     private lateinit var selectorFecha:DatePicker
-    private lateinit var btnContinuar:TextView
+    private lateinit var btnContinuar:Button
     private lateinit var selectorPlataforma:Spinner
     private lateinit var spinner:ProgressBar
     /**

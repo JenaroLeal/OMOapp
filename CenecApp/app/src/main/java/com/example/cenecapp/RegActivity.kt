@@ -30,7 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore
  */
 class RegActivity : AppCompatActivity() {
 
-    private lateinit var btnSiguiente: TextView
+    private lateinit var btnSiguiente: Button
     private lateinit var spinner: ProgressBar
     private lateinit var nombre: EditText
     private lateinit var email: EditText
@@ -99,7 +99,7 @@ class RegActivity : AppCompatActivity() {
         }
 
 
-        btnSiguiente = findViewById<TextView>(R.id.btnSiguiente)
+        btnSiguiente = findViewById<Button>(R.id.btnSiguiente)
         nombre = findViewById<EditText>(R.id.nombreUsuario)
         email = findViewById<EditText>(R.id.campoEmail)
         password = findViewById<EditText>(R.id.campoPassword)
