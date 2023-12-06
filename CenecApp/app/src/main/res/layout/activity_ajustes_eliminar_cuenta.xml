@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/fondoPantalla"
+    android:background="@color/white"
     android:padding="20dp"
     tools:context=".AjustesEliminarCuenta">
     <TextView
@@ -14,12 +14,12 @@
         android:layout_height="wrap_content"
         android:text="Eliminar cuenta de OMO"
         android:layout_margin="10dp"
-        android:textColor="@color/verdeRecluciente">
+        android:textColor="@color/black">
     </TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTextos"
+        android:textColor="@color/black"
         android:layout_margin="10dp"
         android:text="Para eliminar tu cuenta en OMO, deberás introducir tu email y contraseña">
     </TextView>
@@ -28,23 +28,23 @@
         android:layout_height="wrap_content"
         android:text="Introduce tu email"
         android:layout_margin="10dp"
-        android:textColor="@color/verdeRecluciente">
+        android:textColor="@color/black">
     </TextView>
     <EditText
         android:id="@+id/emailEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Escribe aquí tu email"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_margin="10dp"
-        android:textColorHint="@color/colorTextos">
+        android:textColorHint="@color/gris_roto">
     </EditText>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Introduce tu contraseña"
         android:layout_margin="10dp"
-        android:textColor="@color/verdeRecluciente">
+        android:textColor="@color/black">
     </TextView>
     <EditText
         android:id="@+id/passwordEliminar"
@@ -52,9 +52,9 @@
         android:layout_height="wrap_content"
         android:hint="Escribe aquí tu contraseña"
         android:inputType="textPassword"
-        android:textColorHint="@color/colorTextos"
+        android:textColorHint="@color/gris_roto"
         android:layout_margin="10dp"
-        android:textColor="@color/blancoOpaco">
+        android:textColor="@color/black">
     </EditText>
     <Button
         android:id="@+id/btnEliminarCuenta"

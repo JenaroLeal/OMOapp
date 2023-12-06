@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/fondoPantalla"
+    android:background="@color/white"
     tools:context=".PerfilAmigos">
 
     <LinearLayout
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/colorTextos"
+                    android:textColor="@color/black"
                     android:hint="Nombre"
                     android:textAlignment="center"
                     android:textSize="30sp">
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/biografiaAmigo"
                     android:textAlignment="center"
-                    android:textColor="@color/colorTextos"
+                    android:textColor="@color/black"
                     android:padding="15dp"
                     android:layout_margin="15dp"
                     android:hint="mi biografia"></TextView>
@@ -80,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:backgroundTint="@color/fondoTarjeta"
+                    android:backgroundTint="@color/white"
                     android:layout_margin="15dp"
                     app:cardCornerRadius="15dp"
                     android:padding="15dp">
@@ -93,24 +93,24 @@
                             android:layout_height="wrap_content"
                             android:padding="15dp"
                             android:text="PLATAFORMA"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:layout_gravity="center"
                             android:layout_weight="2"></TextView>
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/fondoTarjeta"
+                            android:backgroundTint="@color/white"
                             android:padding="15dp"
                             android:layout_margin="15dp"
                             app:cardCornerRadius="15dp"
                             android:layout_gravity="center"
-                            android:outlineSpotShadowColor="@color/verdeRecluciente">
+                            android:outlineSpotShadowColor="@color/black">
                             <TextView
                                 android:id="@+id/plataformaAmigo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="15dp"
-                                android:textColor="@color/colorTextos"
+                                android:textColor="@color/black"
                                 android:hint="plataforma"
                                 android:textSize="20sp"
                                 android:textAlignment="center"
@@ -126,7 +126,7 @@
                     android:layout_margin="15dp"
                     android:padding="15dp"
                     app:cardCornerRadius="15dp"
-                    android:backgroundTint="@color/fondoTarjeta">
+                    android:backgroundTint="@color/white">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:layout_margin="10dp"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:text="Juegos">
                         </TextView>
@@ -150,24 +150,24 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:backgroundTint="@color/fondoTarjeta"
+                                android:backgroundTint="@color/white"
                                 android:layout_weight="1"
                                 android:layout_margin="2dp"
-                                android:outlineSpotShadowColor="@color/verdeRecluciente"
+                                android:outlineSpotShadowColor="@color/black"
                                 app:cardCornerRadius="15dp">
                                 <TextView
                                     android:id="@+id/juego1Amigo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:hint="Juego 1"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/black"
                                     android:layout_gravity="center"/>
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:backgroundTint="@color/fondoTarjeta"
-                                android:outlineSpotShadowColor="@color/verdeRecluciente"
+                                android:backgroundTint="@color/white"
+                                android:outlineSpotShadowColor="@color/black"
                                 android:layout_weight="1"
                                 android:layout_margin="2dp"
                                 app:cardCornerRadius="15dp">
@@ -175,15 +175,15 @@
                                     android:id="@+id/juego2Amigo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/black"
                                     android:hint="Juego 2"
                                     android:layout_gravity="center"/>
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:backgroundTint="@color/fondoTarjeta"
-                                android:outlineSpotShadowColor="@color/verdeRecluciente"
+                                android:backgroundTint="@color/white"
+                                android:outlineSpotShadowColor="@color/black"
                                 android:layout_weight="1"
                                 android:layout_margin="2dp"
                                 app:cardCornerRadius="15dp">
@@ -191,7 +191,7 @@
                                     android:id="@+id/juego3Amigo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/black"
                                     android:hint="Juego 3"
                                     android:layout_gravity="center"/>
                             </androidx.cardview.widget.CardView>
@@ -206,8 +206,8 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:backgroundTint="@color/fondoTarjeta"
-                                android:outlineSpotShadowColor="@color/verdeRecluciente"
+                                android:backgroundTint="@color/white"
+                                android:outlineSpotShadowColor="@color/black"
                                 android:layout_weight="1"
                                 android:layout_margin="2dp"
                                 app:cardCornerRadius="15dp">
@@ -215,15 +215,15 @@
                                     android:id="@+id/juego4Amigo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/black"
                                     android:hint="Juego 4"
                                     android:layout_gravity="center"/>
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:backgroundTint="@color/fondoTarjeta"
-                                android:outlineSpotShadowColor="@color/verdeRecluciente"
+                                android:backgroundTint="@color/white"
+                                android:outlineSpotShadowColor="@color/black"
                                 android:layout_weight="1"
                                 android:layout_margin="2dp"
                                 app:cardCornerRadius="15dp">
@@ -231,7 +231,7 @@
                                     android:id="@+id/juego5Amigo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/white"
+                                    android:textColor="@color/black"
                                     android:hint="Juego 5"
                                     android:layout_gravity="center"/>
                             </androidx.cardview.widget.CardView>
@@ -256,8 +256,8 @@
                         android:padding="10dp"
                         app:cardCornerRadius="15dp"
                         android:layout_weight="2"
-                        android:backgroundTint="@color/fondoTarjeta"
-                        android:outlineSpotShadowColor="@color/verdeRecluciente"
+                        android:backgroundTint="@color/white"
+                        android:outlineSpotShadowColor="@color/black"
                         android:layout_gravity="center">
 
                         <LinearLayout
@@ -268,7 +268,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="center"
-                                android:textColor="@color/white"
+                                android:textColor="@color/black"
                                 android:layout_marginTop="10dp"
                                 android:text="AFINIDAD">
 
@@ -282,7 +282,7 @@
                                     android:id="@+id/afinidadAmigo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/colorTextos"
+                                    android:textColor="@color/black"
                                     android:textSize="40sp"
                                     android:textAlignment="center"
                                     android:hint="%">
@@ -291,7 +291,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/colorTextos"
+                                    android:textColor="@color/black"
                                     android:textSize="40sp"
                                     android:textAlignment="center"
                                     android:text="%">

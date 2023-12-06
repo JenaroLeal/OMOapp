@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/fondoPantalla"
+    android:background="@color/white"
     android:padding="15dp"
     tools:context=".ActividadAjustesPropios">
 <ScrollView
@@ -22,14 +22,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/ajustesUsuario"
-            android:textColor="@color/verdeRecluciente"
+            android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"></TextView>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/white"></View>
+            android:background="@color/black"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_marginLeft="5dp"
                 android:text="@string/editarusuario">
@@ -69,7 +69,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
                 android:text="@string/elegir_idioma">
             </TextView>
@@ -87,7 +87,7 @@
                 android:text="@string/guardaridioma"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/verdeRecluciente">
+                android:textColor="@color/black">
 
             </TextView>
 
@@ -109,7 +109,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
                 android:text="@string/obtener_premium">
             </TextView>
@@ -134,7 +134,7 @@
                 android:gravity="center"
                 android:text="@string/cambiar_contrase_a"
                 android:textAlignment="center"
-                android:textColor="@color/white"></TextView>
+                android:textColor="@color/black"></TextView>
 
         </LinearLayout>
         <LinearLayout
@@ -153,7 +153,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
                 android:text="@string/usuarios_bloqueados">
             </TextView>
@@ -176,7 +176,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
                 android:text="@string/invitar_jugadores">
             </TextView>
@@ -198,7 +198,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
                 android:text="@string/ayuda">
             </TextView>
@@ -220,7 +220,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:text="@string/faq">
             </TextView>
 
@@ -241,7 +241,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
                 android:text="@string/cerrar_sesi_n">
             </TextView>
@@ -263,7 +263,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="5dp"
                 android:text="@string/eliminar_cuenta">
             </TextView>
