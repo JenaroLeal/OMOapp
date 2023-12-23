@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Ventana de Chats"
         android:textSize="30sp"
-        android:textColor="@color/white">
+        android:textColor="@color/black">
     </TextView>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainUserRecyclerView"

@@ -104,14 +104,14 @@
             <Button
                 android:id="@+id/btnDescartarAJugador"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/rojoRecluciente">
             </Button>
             <Button
                 android:id="@+id/btnConectarAJugador"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/verdeRecluciente">
             </Button>

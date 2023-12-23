@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/fondoPantalla"
+    android:background="@color/white"
     android:gravity="center"
     tools:context="Fragments.bienvenida">
 
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/jugamos"
-        android:textColor="@color/verdeRecluciente"
+        android:textColor="@color/black"
         android:textSize="50sp"
         android:textStyle="bold"
        />

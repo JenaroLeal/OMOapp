@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Agrega tus elementos, por ejemplo, botones -->
     <Button
         android:id="@+id/btnBloquear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Bloquear" />
 
     <Button
@@ -17,7 +18,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Denunciar" />
-
-    <!-- Agrega otros elementos según tus necesidades -->
 
 </LinearLayout>
