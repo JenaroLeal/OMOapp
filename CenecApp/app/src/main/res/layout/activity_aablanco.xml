@@ -12,7 +12,8 @@
 
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:orientation="horizontal">
+       android:orientation="horizontal"
+       android:padding="10dp">
        <de.hdodenhof.circleimageview.CircleImageView
            android:id="@+id/imgFotoChat"
            android:layout_width="80dp"
@@ -31,7 +32,8 @@
         android:layout_weight="1"
         android:id="@+id/recyclerChats"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
     </androidx.recyclerview.widget.RecyclerView>
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,16 +44,16 @@
             android:id="@+id/textoMensaje"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="15dp"
             android:textColor="@color/white">
         </EditText>
-        <ImageButton
+        <ImageView
             android:id="@+id/btnEnviarMensaje"
             android:layout_width="30dp"
-            android:layout_height="20dp"
-            android:layout_margin="5dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:src="@drawable/llave"></ImageButton>
+            android:layout_margin="10dp"
+            android:src="@drawable/play"></ImageView>
     </LinearLayout>
 
 

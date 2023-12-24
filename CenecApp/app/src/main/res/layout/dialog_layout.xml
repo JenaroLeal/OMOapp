@@ -10,12 +10,16 @@
         android:id="@+id/btnEliminar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
         android:text="Eliminar" />
 
     <Button
         android:id="@+id/btnDesbloquear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
         android:text="Desbloquear" />
 
     <!-- Agrega otros elementos según tus necesidades -->
