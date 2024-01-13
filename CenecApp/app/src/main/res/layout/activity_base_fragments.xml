@@ -21,41 +21,49 @@
         android:background="@color/white"
         android:orientation="horizontal"
         >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="4">
 
         <ImageView
             android:id="@+id/irAChats"
-            android:layout_width="40dp"
-            android:layout_height="48dp"
-            android:layout_gravity="start"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_margin="4dp"
             android:background="@drawable/vectorchats">
 
         </ImageView>
         <ImageView
             android:id="@+id/irAmigos"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="60dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_margin="4dp"
             android:background="@drawable/vectoramigos">
         </ImageView>
 
 
         <ImageView
             android:id="@+id/irAPerfil"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_margin="4dp"
             android:background="@drawable/vectorjugador">
 
         </ImageView>
 
         <ImageView
             android:id="@+id/irASocial"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp"
-            android:layout_gravity="end"
-            android:src="@drawable/social"></ImageView>
-
+            android:layout_margin="4dp"
+            android:src="@drawable/vectormando"></ImageView>
+</LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>
