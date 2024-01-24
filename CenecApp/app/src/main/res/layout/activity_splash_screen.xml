@@ -14,5 +14,5 @@
         android:id="@+id/splashImagen"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/logoOMO"/>
+        android:src="@drawable/logofinal"/>
 </LinearLayout>

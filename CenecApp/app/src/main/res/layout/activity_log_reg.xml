@@ -15,7 +15,7 @@
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginTop="80dp"
-        app:srcCompat="@drawable/logoomo"/>
+        app:srcCompat="@drawable/logofinal"/>
 
     <Button
         android:id="@+id/btnReg"
