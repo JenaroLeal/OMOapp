@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondoPantalla"
     tools:context=".TerminosCondiciones">
     <ScrollView
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/gris_roto"
                 android:textStyle="italic"
                 android:text="@string/terminos_condiciones">
             </TextView>

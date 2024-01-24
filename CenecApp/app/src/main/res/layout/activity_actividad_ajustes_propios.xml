@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/fondoPantalla"
     android:padding="15dp"
     tools:context=".ActividadAjustesPropios">
 <ScrollView
@@ -17,20 +17,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="15dp"
+        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/ajustesUsuario"
-            android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textColor="@color/gris_roto"
+            android:textSize="25sp"
             android:textStyle="bold"></TextView>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/black"></View>
+            android:layout_marginTop="10dp"
+            android:background="@color/gris_roto"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:gravity="center"
                 android:layout_marginLeft="5dp"
                 android:text="@string/editarusuario">
@@ -71,7 +73,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/elegir_idioma">
             </TextView>
@@ -89,7 +91,7 @@
                 android:text="@string/guardaridioma"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/black">
+                android:textColor="@color/gris_roto">
 
             </TextView>
 
@@ -111,7 +113,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/obtener_premium">
             </TextView>
@@ -136,7 +138,7 @@
                 android:gravity="center"
                 android:text="@string/cambiar_contrase_a"
                 android:textAlignment="center"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/gris_roto"></TextView>
 
         </LinearLayout>
         <LinearLayout
@@ -155,7 +157,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/usuarios_bloqueados">
             </TextView>
@@ -178,7 +180,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/invitar_jugadores">
             </TextView>
@@ -200,7 +202,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/ayuda">
             </TextView>
@@ -222,7 +224,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:text="@string/faq">
             </TextView>
 
@@ -243,7 +245,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/cerrar_sesi_n">
             </TextView>
@@ -265,7 +267,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/eliminar_cuenta">
             </TextView>

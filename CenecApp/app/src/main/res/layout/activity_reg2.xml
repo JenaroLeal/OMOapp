@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondoPantalla"
     tools:context=".RegActivity2">
 
     <ScrollView
@@ -22,18 +23,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Introduce tu ciudad"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:padding="20dp"
-                android:textColor="@color/black">
+                android:textColor="@color/gris_roto">
             </TextView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"></View>
+                android:background="@color/gris_roto"></View>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:padding="20dp">
                 <ImageView
                     android:id="@+id/iconCiudad"
@@ -53,19 +56,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Introduce tu plataforma"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:padding="20dp"
-                android:layout_marginTop="50dp"
-                android:textColor="@color/black">
+                android:layout_marginTop="30dp"
+                android:textColor="@color/gris_roto">
             </TextView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"></View>
+                android:background="@color/gris_roto"></View>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:padding="20dp">
                 <ImageView
                     android:id="@+id/fechaNacimiento"
@@ -88,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:max="100"
                 android:progress="50"
-                android:progressTint="@color/verdeRecluciente"
+                android:progressTint="@color/gris_roto"
                 android:layout_marginTop="30dp"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_gravity="center_horizontal">
@@ -100,8 +104,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btnSiguiente"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/black"
-                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/gris_roto"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
                 android:textSize="20sp">
             </Button>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@color/white"
+    android:background="@color/fondoPantalla"
     tools:context=".AjustesAmigos">
 
     <LinearLayout
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Denunciar..."
-            android:textColor="@color/black"
+            android:textColor="@color/gris_roto"
             android:layout_marginTop="10dp">
         </TextView>
         <TextView
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bloquear"
-            android:textColor="@color/black"
+            android:textColor="@color/gris_roto"
             android:layout_marginTop="10dp">
         </TextView>
         <TextView
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Información de jugador"
-            android:textColor="@color/black"
+            android:textColor="@color/gris_roto"
             android:layout_marginTop="10dp">
         </TextView>
         <TextView
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Eliminar"
-            android:textColor="@color/black"
+            android:textColor="@color/gris_roto"
             android:layout_marginTop="10dp">
         </TextView>
 

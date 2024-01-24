@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/fondoPantalla"
     tools:context=".Perfil_Jugadores">
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gris_roto"
                     android:hint="Nombre"
                     android:textAlignment="center"
                     android:textSize="30sp">
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/biografiaJugador"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gris_roto"
                     android:padding="15dp"
                     android:layout_margin="15dp"
                     android:hint="mi biografia"></TextView>
@@ -60,7 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/gris_roto"
                     android:layout_margin="15dp"
                     app:cardCornerRadius="15dp"
                     android:padding="15dp">
@@ -75,6 +75,7 @@
                             android:text="PLATAFORMA"
                             android:textColor="@color/black"
                             android:layout_gravity="center"
+                            android:textSize="20sp"
                             android:layout_weight="2"></TextView>
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
@@ -106,7 +107,7 @@
                     android:layout_margin="15dp"
                     android:padding="15dp"
                     app:cardCornerRadius="15dp"
-                    android:backgroundTint="@color/white">
+                    android:backgroundTint="@color/gris_roto">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -243,7 +244,7 @@
                         android:padding="10dp"
                         app:cardCornerRadius="15dp"
                         android:layout_weight="2"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/gris_roto"
                         android:outlineSpotShadowColor="@color/black"
                         android:layout_gravity="center">
 

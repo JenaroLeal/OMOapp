@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fondoTarjeta"
     android:orientation="vertical">
 
     <Button
@@ -11,16 +12,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/gris_roto"
+        android:textColor="@color/white"
         android:text="Bloquear" />
 
     <Button
         android:id="@+id/btnDenunciar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/gris_roto"
+        android:textColor="@color/white"
         android:text="Denunciar" />
 
 </LinearLayout>

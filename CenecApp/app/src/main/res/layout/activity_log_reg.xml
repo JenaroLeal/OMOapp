@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/rootLayout"
+    android:background="@color/fondoPantalla"
     android:gravity="center_horizontal">
 
     <ImageView
@@ -14,7 +15,7 @@
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginTop="80dp"
-        app:srcCompat="@drawable/omologoremovebg" />
+        app:srcCompat="@drawable/logoomo"/>
 
     <Button
         android:id="@+id/btnReg"
@@ -23,9 +24,8 @@
         android:layout_marginTop="52dp"
         android:textSize="20sp"
         android:text="@string/registrarse"
-        android:textStyle="bold"
-        android:backgroundTint="#EBE2F3"
-        android:textColor="#901EF6" />
+        android:backgroundTint="@color/gris_roto"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnInicio"
@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:text="@string/iniciarsesion"
         android:textSize="15sp"
-        android:textStyle="bold"
         android:layout_marginTop="24dp"
-        android:textColor="#0E0430" />
+        android:backgroundTint="@color/gris_roto"
+        android:textColor="@color/white" />
 
 </LinearLayout>

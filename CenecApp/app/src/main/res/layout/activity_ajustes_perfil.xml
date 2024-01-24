@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/fondoPantalla"
     tools:context=".AjustesPerfil">
     <ScrollView
         android:layout_width="match_parent"
@@ -14,31 +14,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:padding="10dp"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:text="Editar Perfil"
-                android:textColor="@color/black">
+                android:layout_margin="10dp"
+                android:textColor="@color/gris_roto">
             </TextView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"></View>
+                android:layout_margin="10dp"
+                android:background="@color/gris_roto"></View>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textColor="@color/gris_roto"
                     android:text="Nombre de usuario: ">
                 </TextView>
                 <TextView
@@ -46,22 +47,23 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/nombreActual"
                     android:layout_weight="1"
-                    android:textColorHint="@color/gris_roto"
-                    android:textColor="@color/black"
-                    android:hint="nombre">
+                    android:textColorHint="@color/gris"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:hint="Nombre">
                 </TextView>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_margin="5dp"
+               android:layout_margin="10dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textColor="@color/gris_roto"
                     android:text="Nuevo nombre: ">
                 </TextView>
                 <EditText
@@ -69,66 +71,67 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/nuevoNombre"
                     android:layout_weight="1"
-                    android:textColorHint="@color/gris_roto"
-                    android:textColor="@color/black"
-                    android:hint="nuevo nombre">
+                    android:textColorHint="@color/gris"
+                    android:textColor="@color/white"
+                    android:hint="Nuevo nombre">
                 </EditText>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/gris_roto"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="15dp"
                     android:text="Biografia de usuario: ">
                 </TextView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bioActual"
-                    android:textColorHint="@color/gris_roto"
-                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textColorHint="@color/gris"
+                    android:textColor="@color/white"
                     android:hint="bio actual">
                 </TextView>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gris_roto"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
                     android:text="Nueva Biografia: ">
                 </TextView>
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/nuevaBio"
-                    android:textColorHint="@color/gris_roto"
-                    android:textColor="@color/black"
-                    android:hint="nueva biografia">
+                    android:textColorHint="@color/gris"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:hint="Nueva biografia">
                 </EditText>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_margin="5dp"
-                android:gravity="center"
+                android:layout_margin="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gris_roto"
+                    android:textSize="20sp"
                     android:text="Cambiar foto de perfil: ">
                 </TextView>
                 <ImageView
@@ -136,6 +139,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/foto2png">
                 </ImageView>
             </LinearLayout>
@@ -144,6 +148,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/gris_roto"
                 android:text="Guardar cambios">
             </Button>
         </LinearLayout>

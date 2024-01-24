@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="20dp"
+    android:background="@color/fondoPantalla"
     android:outlineSpotShadowColor="@color/black"
     app:cardElevation="10dp"
     android:layout_margin="20dp">
@@ -16,6 +17,7 @@
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/fondoTarjeta"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -51,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="start"
                     android:textSize="50sp"
-                    android:textColor="@color/black">
+                    android:textColor="@color/gris_roto">
 
                 </TextView>
                 <TextView
@@ -59,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nombre usuario"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gris_roto"
                     android:textSize="20sp"
                     android:gravity="start">
                 </TextView>
@@ -72,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Amigos en común: "
-                        android:textColor="@color/black"
+                        android:textColor="@color/gris_roto"
                         android:textSize="15sp"
                         android:textStyle="italic"
                         android:gravity="start">
@@ -85,7 +87,7 @@
                         android:text="123"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textColor="@color/black">
+                        android:textColor="@color/white">
 
                     </TextView>
                 </LinearLayout>
@@ -96,7 +98,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="@color/fondoTarjeta"
             android:padding="10dp"
             android:orientation="vertical">
             <ImageButton
@@ -109,7 +111,7 @@
             </ImageButton>
             <View
                 android:layout_width="match_parent"
-                android:background="@color/blancoOpaco"
+                android:background="@color/gris_roto"
                 android:layout_marginTop="5dp"
                 android:layout_height="1dp">
 

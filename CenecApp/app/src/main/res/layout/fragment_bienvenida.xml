@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/fondoPantalla"
     android:gravity="center"
     tools:context="Fragments.bienvenida">
 
     <ImageView
         android:id="@+id/splashImagen"
         android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:src="@drawable/omologoremovebg"
+        android:layout_height="300dp"
+        android:src="@drawable/logoOMO"
         />
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/jugamos"
-        android:textColor="@color/black"
+        android:textColor="@color/gris_roto"
         android:textSize="50sp"
         android:textStyle="bold"
        />

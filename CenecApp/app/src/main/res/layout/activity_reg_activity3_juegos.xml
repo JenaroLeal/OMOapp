@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondoPantalla"
     android:orientation="vertical"
     tools:context=".RegActivity3_juegos">
 
@@ -26,15 +27,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Elige tus juegos favoritos"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:padding="20dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/black">
+                android:textColor="@color/gris_roto">
             </TextView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"></View>
+                android:background="@color/gris_roto"></View>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btnSiguiente"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/gris_roto"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:textSize="20sp">

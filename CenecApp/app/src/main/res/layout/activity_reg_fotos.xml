@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondoPantalla"
     tools:context=".RegActivity_fotos"
     android:orientation="vertical">
     <ScrollView
@@ -23,22 +24,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Elige tu foto de perfil"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:padding="20dp"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/black">
+                android:textColor="@color/gris_roto">
             </TextView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"></View>
+                android:layout_marginBottom="10dp"
+                android:background="@color/gris_roto"></View>
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/foto1"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:src="@drawable/foto2png"
-                app:civ_border_color="@color/black"
+                android:layout_marginTop="10dp"
+                app:civ_border_color="@color/gris_roto"
                 app:civ_border_width="2dp">
             </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -46,15 +49,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Introduce una biografía"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:padding="20dp"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/black">
+                android:textColor="@color/gris_roto">
             </TextView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"></View>
+                android:background="@color/gris_roto"></View>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +78,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:textSize="15sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:background="@drawable/edittext"
                     android:hint="@string/sobremi"
@@ -91,7 +94,7 @@
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:max="100"
                 android:progress="100"
-                android:progressTint="@color/verdeRecluciente"
+                android:progressTint="@color/gris_roto"
                 android:layout_gravity="center">
 
             </ProgressBar>
@@ -101,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btnSiguiente"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/gris_roto"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:textSize="20sp">

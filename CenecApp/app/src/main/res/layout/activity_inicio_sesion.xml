@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/white"
+    android:background="@color/fondoPantalla"
     android:padding="10dp"
     tools:context=".Inicio_Sesion_Activity">
     <ScrollView
@@ -17,27 +16,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bienvenid@ de nuevo"
                 android:textSize="25sp"
-                android:padding="10dp"
-                android:layout_marginBottom="150dp"
-                android:textStyle="bold"
-                android:textColor="@color/black">
+                android:layout_margin="10dp"
+                android:textColor="@color/gris_roto">
             </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/gris_roto"></View>
 
             <EditText
                 android:id="@+id/emailInicioSesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Introduce tu email"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gris_roto"
-                android:layout_marginBottom="15dp">
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gris">
 
             </EditText>
 
@@ -47,16 +49,18 @@
                 android:layout_height="wrap_content"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gris_roto"></EditText>
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gris"></EditText>
 
             <Button
                 android:id="@+id/btnInicioSesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_margin="5dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/gris_roto"
+                android:textSize="15sp"
+                android:textColor="@color/white"
                 android:text="Guardar cambios"
                 android:layout_gravity="center">
             </Button>
@@ -65,9 +69,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="¿No tienes cuenta? ¡Registrate!"
-                android:textColor="@color/black"
+                android:textColor="@color/gris_roto"
                 android:textStyle="italic"
-                android:textSize="12sp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp">
             </TextView>
