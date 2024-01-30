@@ -61,7 +61,7 @@
                 android:backgroundTint="@color/gris_roto"
                 android:textSize="15sp"
                 android:textColor="@color/white"
-                android:text="Guardar cambios"
+                android:text="Iniciar Sesión"
                 android:layout_gravity="center">
             </Button>
             <TextView

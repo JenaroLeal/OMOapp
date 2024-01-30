@@ -7,7 +7,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/fondoPantalla"
+    android:padding="10dp"
     tools:context="Fragments.amigos">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AMIGOS"
+        android:textSize="25sp"
+        android:layout_margin="10dp"
+        android:textColor="@color/gris_roto">
+    </TextView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@color/gris_roto"></View>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +29,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/contenedorReciclerAmigos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 

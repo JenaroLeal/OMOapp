@@ -39,7 +39,7 @@ class AjustesAmigos : AppCompatActivity() {
         bloquear.setOnClickListener() {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("¿Bloquear Amigo?")
-            builder.setPositiveButton("Yes") { _, _ ->
+            builder.setPositiveButton("Sí") { _, _ ->
                 // Perform action when "Yes" button is clicked
 
                 referencia.update("amigos", FieldValue.arrayRemove(miEmail)).addOnSuccessListener {
@@ -84,7 +84,7 @@ class AjustesAmigos : AppCompatActivity() {
         eliminar.setOnClickListener() {
             val builder = androidx.appcompat.app.AlertDialog.Builder(this)
             builder.setTitle("¿Eliminar amigo de forma permanente?")
-            builder.setPositiveButton("Yes") { _, _ ->
+            builder.setPositiveButton("Sí") { _, _ ->
 
                 miRef.update("usuariosRechazados", FieldValue.arrayUnion(suEmail))
                     .addOnSuccessListener {

@@ -67,7 +67,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
             btnEliminar.setOnClickListener {
                 val builder = AlertDialog.Builder(actividadMadre)
                 builder.setTitle("¿Eliminar amigo de forma permanente?")
-                builder.setPositiveButton("Yes") { _, _ ->
+                builder.setPositiveButton("sí") { _, _ ->
 
                     miRef.update("usuariosRechazados", FieldValue.arrayUnion(suEmail))
                         .addOnSuccessListener {
@@ -111,7 +111,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
             btnDesbloquear.setOnClickListener {
                 val builder = AlertDialog.Builder(actividadMadre)
                 builder.setTitle("¿Desbloquear usuario?")
-                builder.setPositiveButton("Yes") { _, _ ->
+                builder.setPositiveButton("Sí") { _, _ ->
                     // Perform action when "Yes" button is clicked
 
                     miRef.update("usuariosBloqueados", FieldValue.arrayRemove(suEmail))

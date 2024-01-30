@@ -41,6 +41,22 @@ class AjustesPerfil : AppCompatActivity() {
 
        var imageUri: Uri? = null
 
+        miRef.addSnapshotListener { snapshot, exception ->
+            if (exception != null) {
+                // Handle errors
+                return@addSnapshotListener
+            }
+
+            if (snapshot != null && snapshot.exists()) {
+                // Update UI with the latest data
+                val nombre = snapshot.getString("nombre") ?: ""
+                val bio = snapshot.getString("biografia") ?: ""
+
+                binding.nombreActual.text = nombre
+                binding.bioActual.text = bio
+            }
+        }
+
         binding.nombreActual.text=usuario.nombre
         binding.bioActual.text=usuario.biografia
 
@@ -65,6 +81,9 @@ class AjustesPerfil : AppCompatActivity() {
             }
             if(bio.equals("")){
                 bio=usuario.biografia!!
+            }
+            else if (bio.length<30){
+                binding.nuevaBio.error = "La biografía debe tener al menos 30 caracteres"
             }
 
             val updates = hashMapOf<String, Any>(
@@ -122,6 +141,11 @@ class AjustesPerfil : AppCompatActivity() {
         }.addOnFailureListener {
             Toast.makeText(this,getString(R.string.fotoNoOk),Toast.LENGTH_LONG).show()
         }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
 
     }
 

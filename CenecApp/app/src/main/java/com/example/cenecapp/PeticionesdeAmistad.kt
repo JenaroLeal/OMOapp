@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import clases.Usuario
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.cenecapp.Funciones
+import okhttp3.internal.notify
 
 class PeticionesdeAmistad : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,26 @@ class PeticionesdeAmistad : AppCompatActivity() {
         val stringArray = mutableListOf<String>()
         val arrayEmail = usuario.usuariosQueQuierenConectar
         stringArray.addAll(arrayEmail)
+
+        val userRef = FirebaseFirestore.getInstance().collection("Usuarios").document(usuario.email!!)
+
+        // Add a real-time listener to observe changes in usuariosQueQuierenConectar field
+        userRef.addSnapshotListener { snapshot, exception ->
+            if (exception != null) {
+                // Handle errors
+                return@addSnapshotListener
+            }
+
+            if (snapshot != null && snapshot.exists()) {
+                // Get the updated usuariosQueQuierenConectar
+                var usuariosQueQuierenConectar = snapshot.get("usuariosQueQuierenConectar") as? ArrayList<String>
+
+                // Update the UI with the latest data
+                if (usuariosQueQuierenConectar != null) {
+
+                }
+            }
+        }
 
         var juegosUser= arrayOf<String>(usuario.juegos[0],usuario.juegos[1],usuario.juegos[2],usuario.juegos[3],usuario.juegos[4])
 
@@ -91,6 +112,7 @@ class PeticionesdeAmistad : AppCompatActivity() {
             val recyclerView:RecyclerView=findViewById<RecyclerView>(R.id.contenedorReciclerSolicitudes)
             recyclerView.adapter=adapter
             recyclerView.layoutManager = LinearLayoutManager(this)
+
         }
 
     }

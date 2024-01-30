@@ -80,6 +80,7 @@
                     android:textColor="@color/gris_roto"
                     android:padding="15dp"
                     android:layout_margin="15dp"
+                    android:textSize="25sp"
                     android:hint="mi biografia"></TextView>
                 <androidx.cardview.widget.CardView
 
@@ -142,7 +143,7 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:layout_margin="10dp"
-                            android:textSize="15sp"
+                            android:textSize="20sp"
                             android:textColor="@color/black"
                             android:text="JUEGOS">
                         </TextView>

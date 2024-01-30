@@ -142,6 +142,30 @@ class perfil : Fragment() {
             miBiografia.text=bioRecibida
 
         }
+        val miRef = FirebaseFirestore.getInstance().collection("Usuarios").document(emailRecibido)
+
+        miRef.addSnapshotListener { snapshot, exception ->
+            if (exception != null) {
+                // Handle errors
+                return@addSnapshotListener
+            }
+
+            if (snapshot != null && snapshot.exists()) {
+                // Update UI with the latest data
+                val nombre = snapshot.getString("nombre") ?: ""
+                val bio = snapshot.getString("biografia") ?: ""
+                val usuariosQueQuierenConectar = snapshot.get("usuariosQueQuierenConectar") as? ArrayList<String>
+
+                if (usuariosQueQuierenConectar != null) {
+                    // Update numeroNotificaciones and UI
+                    updateNumeroNotificaciones(usuariosQueQuierenConectar)
+                }
+
+                nombreGamer.text = nombre
+                miBiografia.text = bio
+
+            }
+        }
 
         /**
          * Listener de boton ajustes
@@ -169,6 +193,17 @@ class perfil : Fragment() {
         }
 
         return component
+    }
+    private fun updateNumeroNotificaciones(updatedList: ArrayList<String>) {
+        val numeroNotificaciones = updatedList.size
+
+        if (numeroNotificaciones > 0) {
+            btnNotificaciones.setImageResource(R.drawable.vectornotificacion)
+        } else {
+            btnNotificaciones.setImageResource(R.drawable.vectorsinnotificacion)
+        }
+
+        // Add any other logic related to the UI update
     }
 
     companion object {

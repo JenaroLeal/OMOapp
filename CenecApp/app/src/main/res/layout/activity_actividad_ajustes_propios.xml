@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ajustesUsuario"
+            android:text="AJUSTES"
             android:textColor="@color/gris_roto"
             android:textSize="25sp"
             android:textStyle="bold"></TextView>
@@ -50,6 +50,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/gris_roto"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:text="@string/editarusuario">
             </TextView>
@@ -113,6 +114,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/obtener_premium">
@@ -136,6 +138,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:text="@string/cambiar_contrase_a"
                 android:textAlignment="center"
                 android:textColor="@color/gris_roto"></TextView>
@@ -157,6 +160,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/usuarios_bloqueados">
@@ -164,6 +168,11 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:layout_margin="10dp"
+            android:background="@color/gris_roto"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -180,12 +189,18 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/invitar_jugadores">
             </TextView>
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:layout_margin="10dp"
+            android:background="@color/gris_roto"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -202,6 +217,7 @@
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"
                 android:text="@string/ayuda">
@@ -223,12 +239,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:textColor="@color/gris_roto"
                 android:text="@string/faq">
             </TextView>
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:layout_margin="10dp"
+            android:background="@color/gris_roto"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -246,6 +268,7 @@
                 android:textAlignment="center"
                 android:gravity="center"
                 android:textColor="@color/gris_roto"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:text="@string/cerrar_sesi_n">
             </TextView>
@@ -266,6 +289,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:textColor="@color/gris_roto"
                 android:layout_marginLeft="5dp"

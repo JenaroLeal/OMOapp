@@ -49,7 +49,7 @@ class SolicitudAdapter(val actividadMadre: Activity, val datos:ArrayList<Usuario
         holder.btnAceptar.setOnClickListener(){
             val builder = AlertDialog.Builder(actividadMadre)
             builder.setTitle("¿Agregar como amigo?")
-            builder.setPositiveButton("Yes") { _, _ ->
+            builder.setPositiveButton("Sí") { _, _ ->
                 // Perform action when "Yes" button is clicked
 
                 referencia.update("usuariosQueQuierenConectar", FieldValue.arrayRemove(miEmail)).addOnSuccessListener {
@@ -132,7 +132,7 @@ class SolicitudAdapter(val actividadMadre: Activity, val datos:ArrayList<Usuario
 
             val builder = AlertDialog.Builder(actividadMadre)
             builder.setTitle("¿Rechazar solicitud?")
-            builder.setPositiveButton("Yes") { _, _ ->
+            builder.setPositiveButton("sí") { _, _ ->
                 // Perform action when "Yes" button is clicked
 
                 referencia.update("usuariosQueQuierenConectar", FieldValue.arrayRemove(miEmail)).addOnSuccessListener {

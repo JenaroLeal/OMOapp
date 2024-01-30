@@ -144,13 +144,14 @@
                 android:textColor="@color/gris_roto"
                 android:text="@string/usuarioExistente"/>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <CheckBox
                     android:id="@+id/boxTerminos"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:layout_gravity="center"/>
                 <TextView
                     android:id="@+id/leerTerminos"
@@ -158,6 +159,8 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/gris_roto"
                     android:gravity="center"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
                     android:textStyle="italic"
                     android:text="@string/terminosYCondiciones">
                 </TextView>

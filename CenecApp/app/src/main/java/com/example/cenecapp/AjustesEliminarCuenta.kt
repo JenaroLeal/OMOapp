@@ -154,7 +154,7 @@ class AjustesEliminarCuenta : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Eliminar cuenta")
             .setMessage("¿Seguro que quieres eliminar tu cuenta?")
-            .setPositiveButton("Yes") { _, _ ->
+            .setPositiveButton("Sí") { _, _ ->
                 val user = auth.currentUser
                 if (user != null) {
                     deleteAuthUser(user)
