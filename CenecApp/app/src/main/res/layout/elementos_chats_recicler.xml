@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp"
     app:cardElevation="15dp"
@@ -24,13 +24,13 @@
                 android:layout_gravity="center"
                 android:id="@+id/imgPerfilJugador"
                 android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
+                android:layout_height="match_parent">
             </de.hdodenhof.circleimageview.CircleImageView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginVertical="10dp"
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/nombreJugadorLista"
@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="%%"
-                    android:textSize="40sp"
+                    android:textSize="35sp"
                     android:textAlignment="center"
                     >
                 </TextView>
@@ -59,6 +59,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textSize="12sp"
                         android:text="Amigos"
                         android:textAlignment="center"
                         android:textColor="@color/gris_roto">
@@ -68,6 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Amigos en común"
+                        android:textSize="12sp"
                         android:textAlignment="center"
                         android:textColor="@color/gris_roto">
                     </TextView>
@@ -75,8 +77,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="1dp">
+                    android:orientation="horizontal">
                     <TextView
                         android:id="@+id/amigosJugador"
                         android:layout_width="0dp"
@@ -103,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="5dp">
+            android:layout_margin="10dp">
             <Button
                 android:id="@+id/btnDescartarAJugador"
                 android:layout_width="0dp"
