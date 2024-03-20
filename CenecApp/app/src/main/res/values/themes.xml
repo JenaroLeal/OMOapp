@@ -17,4 +17,9 @@
     <style name="FondoApp" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowBackground">@color/gris_roto</item>
     </style>
+
+    <style name="CustomAlertDialogTheme" parent="@android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:textColorPrimary">@color/gris_roto</item>
+       <item name="android:windowBackground">@color/fondoPantalla</item>
+    </style>
 </resources>

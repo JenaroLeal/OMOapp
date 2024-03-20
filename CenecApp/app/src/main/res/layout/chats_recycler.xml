@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/contenedorAmigo"
-        android:background="@color/fondoTarjeta"
+        android:background="@color/fondoPantalla"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -44,7 +44,7 @@
                     android:id="@+id/nombreAmigoChat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:text="Nombre usuario"
                     android:textColor="@color/gris_roto"
                     android:textSize="20sp">

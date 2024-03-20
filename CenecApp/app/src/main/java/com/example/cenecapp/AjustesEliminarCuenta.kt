@@ -151,7 +151,7 @@ class AjustesEliminarCuenta : AppCompatActivity() {
     }
 
     fun showDeleteConfirmationDialog() {
-        val builder = AlertDialog.Builder(this)
+        val builder = AlertDialog.Builder(this,R.style.CustomAlertDialogTheme)
         builder.setTitle("Eliminar cuenta")
             .setMessage("¿Seguro que quieres eliminar tu cuenta?")
             .setPositiveButton("Sí") { _, _ ->

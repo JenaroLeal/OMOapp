@@ -127,7 +127,8 @@ class RegActivity : AppCompatActivity() {
                 password.error = "Las contraseñas deben ser iguales"
                 password2.error = "Las contraseas deben ser iguales"
             } else if (!checkBox.isChecked) {
-                checkBox.error = getString(R.string.debesAceptarTerminos)
+                //checkBox.error = getString(R.string.debesAceptarTerminos)
+                verTerminos.error = getString(R.string.debesAceptarTerminos)
             }
             else {
                 // Here, we check if the email exists before proceeding

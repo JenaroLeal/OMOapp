@@ -65,7 +65,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
             val btnDesbloquear = dialog.findViewById<Button>(R.id.btnDesbloquear)
 
             btnEliminar.setOnClickListener {
-                val builder = AlertDialog.Builder(actividadMadre)
+                val builder = AlertDialog.Builder(actividadMadre,R.style.CustomAlertDialogTheme)
                 builder.setTitle("¿Eliminar amigo de forma permanente?")
                 builder.setPositiveButton("sí") { _, _ ->
 
@@ -109,7 +109,7 @@ class UsuariosBloqueadosAdapter(val actividadMadre: Activity, val datos: ArrayLi
             }
 
             btnDesbloquear.setOnClickListener {
-                val builder = AlertDialog.Builder(actividadMadre)
+                val builder = AlertDialog.Builder(actividadMadre,R.style.CustomAlertDialogTheme)
                 builder.setTitle("¿Desbloquear usuario?")
                 builder.setPositiveButton("Sí") { _, _ ->
                     // Perform action when "Yes" button is clicked

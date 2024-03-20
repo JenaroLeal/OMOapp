@@ -151,16 +151,15 @@
                     android:id="@+id/boxTerminos"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"/>
+                    android:layout_weight="1" />
                 <TextView
                     android:id="@+id/leerTerminos"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="@color/gris_roto"
                     android:gravity="center"
-                    android:layout_weight="1"
                     android:textSize="12sp"
+                    android:layout_weight="1"
                     android:textStyle="italic"
                     android:text="@string/terminosYCondiciones">
                 </TextView>

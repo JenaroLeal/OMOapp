@@ -84,7 +84,7 @@ class PerfilAmigos : AppCompatActivity() {
             val btnDenunciar = dialog.findViewById<Button>(R.id.btnDenunciar)
 
             btnBloquear.setOnClickListener(){
-                val builder = AlertDialog.Builder(this)
+                val builder = AlertDialog.Builder(this,R.style.CustomAlertDialogTheme)
                 builder.setTitle("¿Bloquear Amigo?")
                 builder.setPositiveButton("Sí") { _, _ ->
                     // Perform action when "Yes" button is clicked

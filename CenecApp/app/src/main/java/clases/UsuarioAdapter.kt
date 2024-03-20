@@ -85,9 +85,9 @@ private lateinit var context: Context
 
 
         holder.btnConectar.setOnClickListener(){
-            val builder = AlertDialog.Builder(actividadMadre)
+            val builder = AlertDialog.Builder(actividadMadre,R.style.CustomAlertDialogTheme)
             builder.setTitle("¿Enviar invitación?")
-            builder.setPositiveButton("Yes") { _, _ ->
+            builder.setPositiveButton("Sí") { _, _ ->
 
                 referencia.update("usuariosQueQuierenConectar", FieldValue.arrayUnion(miEmail)).addOnSuccessListener {
 
@@ -106,7 +106,7 @@ private lateinit var context: Context
                 datos.removeAt(position)
                 this.notifyDataSetChanged()
             }
-            builder.setNegativeButton("No") { dialog, _ ->
+            builder.setNegativeButton("Quizás más tarde") { dialog, _ ->
                 // Perform action when "No" button is clicked
                 dialog.dismiss()
             }
@@ -115,9 +115,9 @@ private lateinit var context: Context
         }
 
         holder.btnEliminar.setOnClickListener(){
-            val builder = AlertDialog.Builder(actividadMadre)
+            val builder = AlertDialog.Builder(actividadMadre,R.style.CustomAlertDialogTheme)
             builder.setTitle("¿Descartar usuario?")
-            builder.setPositiveButton("Yes") { _, _ ->
+            builder.setPositiveButton("Sí") { _, _ ->
 
                 miRef.update("usuariosRechazados",FieldValue.arrayUnion(suEmail)).addOnSuccessListener {
 
@@ -129,7 +129,7 @@ private lateinit var context: Context
 
                 Toast.makeText(actividadMadre, "Jugador descartado", Toast.LENGTH_SHORT).show()
             }
-            builder.setNegativeButton("No") { dialog, _ ->
+            builder.setNegativeButton("Ahora no") { dialog, _ ->
                 // Perform action when "No" button is clicked
                 dialog.dismiss()
             }

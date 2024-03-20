@@ -17,24 +17,25 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gris_roto"
+        android:layout_gravity="bottom"></View>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gris_roto"
-        android:orientation="horizontal">
+        android:background="@color/fondoPantalla"
+        android:orientation="horizontal"
+        android:weightSum="4">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/irAChats"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:layout_gravity="center"
-                android:background="@drawable/vectorchats">
+                android:src="@drawable/vectorchats">
 
             </ImageView>
             <ImageView
@@ -42,25 +43,25 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:background="@drawable/vectoramigos">
+                android:src="@drawable/vectoramigos">
             </ImageView>
 
             <ImageView
                 android:id="@+id/irAPerfil"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:background="@drawable/vectorjugador">
+                android:src="@drawable/vectorjugador">
 
             </ImageView>
 
             <ImageView
                 android:id="@+id/irASocial"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:src="@drawable/vectormando"></ImageView>
-        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
