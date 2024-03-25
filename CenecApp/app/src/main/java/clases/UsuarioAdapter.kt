@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.ViewGroup
@@ -42,13 +43,13 @@ private lateinit var context: Context
         val rojo = ContextCompat.getColor(context,R.color.rojoRecluciente)
         val verde = ContextCompat.getColor(context,R.color.verde)
 
+
         holder.nombre.text=usuario.nombre+" "
         holder.afinidad.text=usuario.afinidad.toString()+"%"
-        if (usuario.afinidad < 50 ){
-            holder.afinidad.setTextColor(rojo)
-        }else{
-            holder.afinidad.setTextColor(verde)
-        }
+
+
+
+        holder.afinidad.setTextColor(getColorForNumber(usuario.afinidad))
 
         holder.amigos.text=usuario.amigos.size.toString()
 
@@ -140,6 +141,28 @@ private lateinit var context: Context
         }
 
 
+    }
+    fun getColorForNumber(number: Int): Int {
+        val colors = listOf(
+            "#FF0056",
+            "#FF006B",
+            "#FF0094",
+            "#FF5576",
+            "#FFB27F",
+            "#BDCC67",
+            "#96B547",
+            "#66CF33",
+            "#33E51A",
+            "#00FF00"
+        )
+        // Calculate the index in the colors list based on the number
+        val index = when {
+            number >= 100 -> 0
+            number < 0 -> 9
+            else -> (number / 10)
+        }
+        // Convert color string to Color Int
+        return Color.parseColor(colors[index])
     }
 
     override fun getItemCount(): Int {

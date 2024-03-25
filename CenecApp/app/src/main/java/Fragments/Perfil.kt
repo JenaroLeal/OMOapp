@@ -96,11 +96,9 @@ class perfil : Fragment() {
          */
 
         var nombreRecibido:String = RegActivity.Companion.nombreEnviado
-        //var emailRecibidoReg:String = SocialActivity.Companion.emailEnviadoLogin
-        var passwordRecibido:String= RegActivity.Companion.passwordEnviado
-        var ciudadRecibida:String= RegActivity2.Companion.ciudadEnviada
+
         var plataformaRecibida:String= RegActivity2.Companion.plataformaEnviada
-        var juegosRecibidos:ArrayList<String> = RegActivity3_juegos.Companion.juegosEnviados
+
         var bioRecibida:String= RegActivity_fotos.Companion.biografiaEnviada
 
         var juego1r=RegActivity3_juegos.Companion.juego1e

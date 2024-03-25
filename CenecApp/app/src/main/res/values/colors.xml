@@ -22,4 +22,17 @@
     <color name="primary_color">#3498db</color>
     <color name="gris_roto">#869cbc</color>
     <color name="primary_text_color">#333333</color>
+
+    //Colores para afinidad
+    <color name="color_1">#00FF00</color>
+    <color name="color_3">#33E51A</color>
+    <color name="color_5">#66CF33</color>
+    <color name="color_7">#84D528</color>
+    <color name="color_9">#91CC67</color>
+    <color name="color_11">#FFB27F</color>
+    <color name="color_13">#FF5576</color>
+    <color name="color_17">#FF0094</color>
+    <color name="color_19">#FF006B</color>
+    <color name="color_20">#FF0056</color>
+
 </resources>

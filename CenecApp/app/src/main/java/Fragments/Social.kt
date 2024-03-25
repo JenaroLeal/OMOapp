@@ -93,10 +93,9 @@ class social : Fragment() {
 
 
         var sumatorio:Int=0
-        var ciudadRecibida:String= RegActivity2.Companion.ciudadEnviada
-        var plataformaRecibida:String= RegActivity2.Companion.plataformaEnviada
+
         var juegosRecibidos:ArrayList<String> = RegActivity3_juegos.Companion.juegosEnviados
-        var misJuegos= juegosRecibidos
+
 
         val juegosUser = Array<String>(usuario.juegos.size) { i ->
             usuario.juegos[i]

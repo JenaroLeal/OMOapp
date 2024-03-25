@@ -23,6 +23,7 @@ private lateinit var mAuth:FirebaseAuth
 private lateinit var btnReg:TextView
 
 private var emailFinal:String=""
+private lateinit var btnRecuperacion: TextView
 
 private lateinit var firebaseAuthStateListener:FirebaseAuth.AuthStateListener
 
@@ -35,9 +36,15 @@ private lateinit var firebaseAuthStateListener:FirebaseAuth.AuthStateListener
         mPassword=findViewById(R.id.contraseñaInicioSesion)
         btnInicio=findViewById(R.id.btnInicioSesion)
         btnReg=findViewById(R.id.btnRegistro)
+        btnRecuperacion = findViewById(R.id.btnRecuperacionPassword)
 
         btnReg.setOnClickListener(){
             val i:Intent=Intent(this,Log_Reg_Activity::class.java)
+            startActivity(i)
+        }
+
+        btnRecuperacion.setOnClickListener(){
+            var i= Intent(this, RecuperacionPass::class.java)
             startActivity(i)
         }
 

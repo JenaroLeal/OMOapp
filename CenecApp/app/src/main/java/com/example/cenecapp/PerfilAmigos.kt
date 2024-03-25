@@ -3,6 +3,7 @@ package com.example.cenecapp
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -62,6 +63,7 @@ class PerfilAmigos : AppCompatActivity() {
         val referencia = db.collection("Usuarios").document(suEmail.toString())
         var funciones = Funciones()
 
+        binding.afinidadAmigo.setTextColor(getColorForNumber(usuario!!.afinidad))
         binding.opcionesAmigos.setOnClickListener(){
             val dialog = Dialog(this)
             dialog.setContentView(R.layout.dialog_ajustes_amigo)
@@ -131,6 +133,29 @@ class PerfilAmigos : AppCompatActivity() {
             dialog.show()
         }
     }
+    fun getColorForNumber(number: Int): Int {
+        val colors = listOf(
+            "#FF0056",
+            "#FF006B",
+            "#FF0094",
+            "#FF5576",
+            "#FFB27F",
+            "#BDCC67",
+            "#96B547",
+            "#66CF33",
+            "#33E51A",
+            "#00FF00"
+        )
+        // Calculate the index in the colors list based on the number
+        val index = when {
+            number >= 100 -> 0
+            number < 0 -> 9
+            else -> (number / 10)
+        }
+        // Convert color string to Color Int
+        return Color.parseColor(colors[index])
+    }
+
 
 
 }

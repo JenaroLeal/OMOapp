@@ -1,5 +1,6 @@
 package com.example.cenecapp
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -62,6 +63,7 @@ class Perfil_Jugadores : AppCompatActivity() {
                 binding.biografiaJugador.text=usuario.biografia
             }
         }
+        binding.afinidadJugador.setTextColor(getColorForNumber(usuario!!.afinidad))
 
 
         /**
@@ -78,5 +80,27 @@ class Perfil_Jugadores : AppCompatActivity() {
         binding.btnConectarConJugador.setOnClickListener(){
 
         }
+    }
+    fun getColorForNumber(number: Int): Int {
+        val colors = listOf(
+            "#FF0056",
+            "#FF006B",
+            "#FF0094",
+            "#FF5576",
+            "#FFB27F",
+            "#BDCC67",
+            "#96B547",
+            "#66CF33",
+            "#33E51A",
+            "#00FF00"
+        )
+        // Calculate the index in the colors list based on the number
+        val index = when {
+            number >= 100 -> 0
+            number < 0 -> 9
+            else -> (number / 10)
+        }
+        // Convert color string to Color Int
+        return Color.parseColor(colors[index])
     }
 }

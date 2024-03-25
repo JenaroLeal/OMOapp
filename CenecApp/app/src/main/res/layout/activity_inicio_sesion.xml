@@ -75,6 +75,17 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp">
             </TextView>
+            <TextView
+                android:id="@+id/btnRecuperacionPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Has olvidado tu contrasñea?"
+                android:textColor="@color/gris_roto"
+                android:textStyle="italic"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp">
+            </TextView>
         </LinearLayout>
 
     </ScrollView>
